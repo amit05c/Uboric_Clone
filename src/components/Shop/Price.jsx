@@ -1,0 +1,79 @@
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+  Flex,
+  Input,
+  Checkbox,
+  Text,
+  Radio,
+} from "@chakra-ui/react";
+
+const Items = ({ name, type, priceFn }) => {
+  return (
+    <Flex>
+      <input type={"radio"}
+      value={type}
+      name={name}
+        onChange={() => {
+          priceFn(type);
+        }}
+      />
+      <Text>{type}</Text>
+    </Flex>
+  );
+};
+
+export const Price = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [priceRange,setPriceRange] = useState([]);
+
+
+
+  const PriceRange = (type) => {
+    setPriceRange([type])
+  };
+
+  useEffect(()=>{
+    setSearchParams({
+        range:priceRange
+    })
+  },[priceRange])
+
+  return (
+    <Accordion allowToggle width={"60%"}>
+      <AccordionItem>
+        <h2>
+          <AccordionButton>
+            <Box flex="1" textAlign="left">
+              Price
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Items
+            // title={"Price"}
+            name="price"
+            type={"100-500"}
+
+            priceFn={PriceRange}
+          />
+          <Items
+            // title={"Price"}
+            name="price"
+            type={"501-1000"}
+            priceFn={PriceRange}
+          />
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+export default Price;

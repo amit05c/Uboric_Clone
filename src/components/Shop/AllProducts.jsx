@@ -3,11 +3,13 @@ import React from 'react'
 
 const AllProducts = ({data}) => {
   return (
-    <Flex border={"1px solid red"}  direction={"column"} justifyContent="center" alignItems={"center"}>
-        <Image src={data.images[0]} boxSize="200px"  />
+    <Flex border={"1px solid red"}  direction={"column"} justifyContent="center" alignItems={"center"}
+    
+    >
+        <Image src={data.images} boxSize="200px"  />
         
-        <Text>{data.title}</Text>
-        <Text>{data.Price}</Text>
+        <Text color={"black"} as={"b"}>{data.title}</Text>
+        <Text color="red" as={"b"}>{`₹ ${data.Price}`}</Text>
     </Flex>
 
   )
