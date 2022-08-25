@@ -23,9 +23,9 @@
   }
   .menu{
     display: flex;
-    gap: 10px;
+    gap: 18px;
     color: #111111;
-    font-size: 12px;
+    font-size: 15px;
     font-family:Arial, sans-serif;
     padding-top: 5px;
     margin-left:25% ;
@@ -33,8 +33,10 @@
   
   .menu-bar{
     display: flex;
-    padding-top: 5px;
-    margin-top: -18px;
+    justify-content: space-between;
+    /* padding-top: 5px; */
+    padding: 0.5rem  1.5rem;
+    margin-top: -20px;
     text-align: center;
    
   }
@@ -97,7 +99,9 @@
   transition: transform 0.25s ease-out;
 }
  .icon{
-  margin-left: 10px;
+  /* justify-content: space-between; */
+  margin-left: 50px;
+  font-size: 50px;
  }
  
  .hover-underline-animation:hover:after {
