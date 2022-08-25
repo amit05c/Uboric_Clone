@@ -1,1 +1,45 @@
 
+.imgs{
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+    /* border: 1px solid blue; */
+    display: flex;
+    height: 290px;
+    position: relative;
+    
+}
+.menu{
+    display: flex;
+    gap: 18px;
+    color: #111111;
+    font-size: 15px;
+    font-family:Arial, sans-serif;
+    padding-top: 2rem ;
+    margin-left:40% ;
+    padding-bottom: 50px;
+  }
+  .secondslider{
+    height: 100px;
+    border: 1px solid red;
+    width: 50%;
+    padding: 1rem 1.5rem;
+    /* background-image: url("banner2-1.jpg"); */
+  }
+  .secondslider:hover{
+    transform: scaleX(1);
+  transform-origin: bottom left;
+  }
+.main{
+    display: flex;
+    padding-left: 1px;
+    padding: 1.5rem 1.5rem;
+}
+.textimg{
+    position: relative;
+    width: 30%;
+    height: 90px;
+    margin-top: -5%;
+    margin-left: 12%;
+    background-color: white;
+    border: 2px solid red;
+}
