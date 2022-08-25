@@ -18,7 +18,7 @@ const Navbar = () => {
      <a href='about-us' className='hover-underline-animation' >About Us </a>
      <a href='shop' className='hover-underline-animation' >Shop</a>
      <a href='categories' className='hover-underline-animation' >Categories</a>
-    <a href='contact_us' className='hover-underline-animation' >Contact Us</a>
+    <a href='contact-us' className='hover-underline-animation' >Contact Us</a>
  </div>
 <div className='icons'>
 <MdOutlineManageAccounts style={{fontSize:"1.5rem"}}/>

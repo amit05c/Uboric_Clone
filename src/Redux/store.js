@@ -1,8 +1,31 @@
-import {legacy_createStore,applyMiddleware,combineReducers} from "redux"
-
-import thunk from 'redux-thunk'
-import { reducer as ProductReducer } from "./ProductsReducer/reducer"
-
-
-const rootReducer= combineReducers({ProductReducer})
-export const store= legacy_createStore(rootReducer,applyMiddleware(thunk))
+// NOTE: use this store variable to create a store.
+import {
+    legacy_createStore,
+    combineReducers,
+    compose,
+    applyMiddleware,
+  } from "redux";
+  import thunk from "redux-thunk";
+  import { reducer as ProductReducer} from "./ProductsReducer/reducer"
+  import { reducer as ContactReducer } from "./ContactReducer/reducer"
+  
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  
+  const rootReducer = combineReducers({ 
+    ProductReducer,
+    ContactReducer
+   });
+  
+  const store = legacy_createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk))
+  );
+  
+  export default store;
+  
+  
+  // NOTE: Do not remove this code,its used for calculating your score, if removed it will give you zero marks
+  if (window.Cypress) {
+    window.store = store;
+  }
+  
