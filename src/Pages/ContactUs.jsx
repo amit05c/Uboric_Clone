@@ -34,7 +34,7 @@ const ContactUs = () => {
   return (
     <Box height="95vh">
       <Divider orientation="horizontal" />
-      <Box width="1150px" maxH="100%" position="center" margin="auto" >
+      <Box width="1150px" maxH="100%" position="center" margin="auto">
         <Flex flexDirection="column">
           <Box width="100%">
             {/* top div */}
@@ -53,9 +53,15 @@ const ContactUs = () => {
                 Contact Us
               </Heading>
             </Box>
-            <Divider orientation="horizontal"/>
+            <Divider orientation="horizontal" />
           </Box>
-          <Box width="100%" maxH="100%" textAlign="left" marginTop="50px" paddingBottom="80px">
+          <Box
+            width="100%"
+            maxH="100%"
+            textAlign="left"
+            marginTop="50px"
+            paddingBottom="80px"
+          >
             <Flex>
               <Box flex="1.2" maxH="100%">
                 <Flex padding="7px 0px 26px">
@@ -115,9 +121,7 @@ const ContactUs = () => {
                   </Heading>
                 </Box>
                 <Box margin="16px 0px 24px" textAlign="left">
-                  <Text fontSize="md">
-                    uboricllp@gmail.com
-                  </Text>
+                  <Text fontSize="md">uboricllp@gmail.com</Text>
                 </Box>
               </Box>
               <Box flex="2.8" padding="0px 30px 0px 30px">
@@ -161,8 +165,13 @@ const ContactUs = () => {
                     />
                   </Stack>
                 </FormControl>
-                <Button borderRadius="0px" color="white" background="#302C26" padding="26px" marginTop="50px"
-                focusBorderColor={{ bg: 'black.100' }}
+                <Button
+                  borderRadius="0px"
+                  color="white"
+                  background="#302C26"
+                  padding="26px"
+                  marginTop="50px"
+                  _hover={{color:"#302C26", background:"#ffffff", border:"1px solid black"}}
                 >
                   Send Message
                 </Button>
