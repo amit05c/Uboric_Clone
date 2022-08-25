@@ -9,12 +9,14 @@ import {
   import thunk from "redux-thunk";
   import { reducer as ProductReducer} from "./ProductsReducer/reducer"
   import { reducer as ContactReducer } from "./ContactReducer/reducer"
+  import {reducer as CartReducer} from "./CartReducer/reducer"
   
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   
   const rootReducer = combineReducers({ 
     ProductReducer,
-    ContactReducer
+    ContactReducer,
+    CartReducer
    });
   
   const store = legacy_createStore(
@@ -26,6 +28,7 @@ import {
   
   
   // NOTE: Do not remove this code,its used for calculating your score, if removed it will give you zero marks
+  
   if (window.Cypress) {
     window.store = store;
   }
