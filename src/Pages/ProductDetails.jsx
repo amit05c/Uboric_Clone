@@ -35,18 +35,18 @@ const ProductDetails = () => {
    dispatch(getCartData())
     
   }, []);
-
+  console.log(cartData.length+1)
   const addToCart=async ()=>{
     const newData={
       id:cartData.length+1,
       title:singleProd[0].title,
       price:singleProd[0].Price,
-      // size:size,
-
+      size:selectSize,
       quantity:qty
     }
      
-  
+    console.log(newData)
+    
     
     await axios.post(`http://localhost:8080/cart`,newData)
     .then(()=>dispatch(getCartData()))
