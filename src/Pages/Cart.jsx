@@ -31,11 +31,11 @@ const Cart = () => {
     {
       alert("Please Enter Coupon Code first")
     }
-    if(coupon !== "masai30")
+    else if(coupon !== "masai30")
     {
       alert("Coupon is not valid")
     }
-    if(coupon === "masai30")
+    else if(coupon === "masai30")
     {
       alert("congratulations 30% discount applied on your orders")
     }
@@ -103,7 +103,7 @@ const Cart = () => {
               </Button>
             </Box>
           </Box>
-            <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"}>
+            <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"} zIndex="1">
             <Box padding="2rem" bgColor={"#f5f5f5"}>
               <Flex
                 justifyContent={"space-between"}
