@@ -1,11 +1,15 @@
+.logo{
+  height: 40px;
+  margin-bottom: 5px;
+  width: 100px;
+}
+
 .app {
     text-align: center;
-    /* flex: 1; */
       background-position: center center;
       background-size: cover;
       height: 10%;
       padding: 5px 20px;
-      /* display: flex; */
       color: #ffffff;
       align-items: center;
       justify-content: center;
@@ -26,39 +30,31 @@
     padding-top: 5px;
     margin-left:25% ;
   }
-  /* .container{
-    border: 1px solid red;
-    height: 500%;
-  } */
+  
   .menu-bar{
     display: flex;
     padding-top: 5px;
     margin-top: -18px;
     text-align: center;
-    /* border: 1px solid purple; */
+   
   }
   
-  .about:hover::after{
-    color: orangered;
-    transform: scale(1,1);
-    /* transition: transform 0.3s ease; */
-  }
-  .about::after{
-    /* color: orangered; */
-    transform: scale(0,1);
-    transition: transform 0.3s ease;
-  }
-  .menu{
-    /* width: 650px;
-    height: 50px; */
-    display: flex;
-  
-  }
+ 
+ 
+ 
  
   .w3rcontainer{
     border: 1px solid #cccfdb;
     border-radius: 2px;
  } 
+ 
+ .animation {
+  display: inline-block;
+  position: relative;
+  gap: 1px;
+  color: #111111;
+  margin-left: 60px;
+}
  .hover-underline-animation {
    display: inline-block;
    position: relative;
@@ -71,6 +67,9 @@
  *{
   font-family: var(--rz-font-family-primary);
  }
+ .hover-underline{
+  border: none;
+ }
  .hover-underline-animation:after {
    content: '';
    position: absolute;
@@ -80,10 +79,23 @@
    bottom: 15px;
    margin-top: 5px;
    left: 0;
-   background-color:  #ff6900;;
+   background-color:  #ff6900;
    transform-origin: bottom right;
    transition: transform 0.25s ease-out;
  }
+ .animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 15px;
+  margin-top: 5px;
+  left: 0;
+  background-color:  #ff6900;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
  .icon{
   margin-left: 10px;
  }
@@ -92,3 +104,43 @@
    transform: scaleX(1);
    transform-origin: bottom left;
  }
+ .animations:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.animation ul li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+ /* .nav{
+   
+  margin-top: 80px;
+  display: flex;
+  width:100%;
+  background:#fff;
+   height: 50px; 
+} */
+ul{
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+.nav{
+  word-spacing: 10px;
+  /* margin-left: 50px; */
+  display: flex;
+  gap: 10px;
+  
+}
+.animation:hover{
+  color:  #ff6900;
+}
+.icons{
+  margin-left: 20%;
+  display: flex;
+  margin-top: 8px;
+  gap: 10px;
+}
+  

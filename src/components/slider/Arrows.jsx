@@ -6,6 +6,7 @@ function Arrows({ prevSlide, nextSlide }) {
       <span className="prev" onClick={prevSlide}>
         &#10094;
       </span>
+      {/* <button>Shop now</button> */}
       <span className="next" onClick={nextSlide}>
         &#10095;
       </span>

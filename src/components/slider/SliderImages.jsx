@@ -2,6 +2,7 @@ import First from "../slider/assets/First.jpg";
 import vegies from "../slider/assets/vegies.png";
 import Second from "../slider/assets/second.png";
 import Third from "../slider/assets/Third.jpg";
+import { Button } from "@chakra-ui/react";
 
 export default 
  [
@@ -9,6 +10,7 @@ export default
     title: "First Slide",
     description: "This is the first slider Image of our carousel",
     urls: First,
+    
   },
   {
     title: "First Slide",
