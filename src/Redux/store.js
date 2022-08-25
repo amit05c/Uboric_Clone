@@ -1,3 +1,4 @@
+
 // NOTE: use this store variable to create a store.
 import {
     legacy_createStore,
@@ -28,4 +29,4 @@ import {
   if (window.Cypress) {
     window.store = store;
   }
-  
+

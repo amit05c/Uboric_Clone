@@ -1,11 +1,24 @@
 {
-    "Contact":[
-        {
-            "id":1,
-            "name": "John",
-            "email": "john@example.com",
-            "phone": "123-456-1234",
-            "message": "John Smith"
-        }
-    ]
+
+  "cart": [
+    {
+      "id": "5",
+      "title": "FINACHI Premium Cotton T-Shirts Combo",
+      "price": "800",
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "title": "FINACHI Premium Cotton T-Shirts Combo",
+      "price": "800",
+      "quantity": 2
+    },
+    {
+      "id": 3,
+      "title": "FINACHI Premium Cotton T-Shirts Combo",
+      "price": "800",
+      "quantity": 4
+    }
+  ]
+
 }
