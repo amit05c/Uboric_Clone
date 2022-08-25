@@ -19,7 +19,7 @@ const Shop = () => {
     const location= useLocation()
     const dispatch= useDispatch()
     // const [data,setData]= useState(products)
-    console.log(location)
+    // console.log(location)
   
     useEffect(()=>{
       if(location || products.length==0){
@@ -44,14 +44,14 @@ const Shop = () => {
           
           
         }
-        console.log(queryParams)
+        // console.log(queryParams)
         dispatch(getData(queryParams))
     }
       
       
     },[location])
 
-console.log(products)
+// console.log(products)
 
     // useEffect(()=>{
     //   dispatch(getData())
