@@ -36,6 +36,7 @@ const AboutUs = () => {
             padding="100px 0px 20px"
             color="rgb(118,118,118)"
             fontSize="13px"
+            fontFamily="inherit"
           >
             OUR STORY
           </Heading>
@@ -45,7 +46,7 @@ const AboutUs = () => {
               size="lg"
               fontWeight="semibold"
               color="#111111"
-              fontFamily="sans-serif"
+              fontFamily="inherit"
             >
               About our Store
             </Heading>
