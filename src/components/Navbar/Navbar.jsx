@@ -15,7 +15,7 @@ const Navbar = () => {
     src='logo.png' alt='logo'/>
  <div className='menu'>
      <a href='home' className='hover-underline-animation' >Home</a>
-     <a href='about' className='hover-underline-animation' >About Us </a>
+     <a href='about-us' className='hover-underline-animation' >About Us </a>
      <a href='shop' className='hover-underline-animation' >Shop</a>
      <a href='categories' className='hover-underline-animation' >Categories</a>
     <a href='contact_us' className='hover-underline-animation' >Contact Us</a>
