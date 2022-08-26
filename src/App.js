@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 // import Slider from './components/slider/Slider';
 import AllRoutes from './Pages/AllRoutes';
 import Home from './Pages/Home';
+import SignUp from './Pages/SignUp';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
       <Navbar/>
       {/* <Home/> */}
-      <AllRoutes/>
+      {/* <AllRoutes/> */}
+      <SignUp />
       <Footer/>
       
     </div>
