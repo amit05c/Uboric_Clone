@@ -13,7 +13,7 @@ import {
   
   const rootReducer = combineReducers({ 
     ProductReducer,
-    ContactReducer
+    ContactReducer,
    });
   
   const store = legacy_createStore(

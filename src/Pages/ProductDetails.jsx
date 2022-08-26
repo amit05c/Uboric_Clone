@@ -19,7 +19,7 @@ const ProductDetails = () => {
   console.log(products);
   const dispatch = useDispatch();
 
-  const singleProd = products.filter((el) => el.id == id);
+  const singleProd = products.filter((el) => el.id === id);
   const sizes = singleProd?.size?.split(" ").map(Number);
   console.log(sizes);
   console.log(singleProd);
