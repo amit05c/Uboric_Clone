@@ -14,7 +14,7 @@ function App() {
       <Navbar/>
       {/* <Home/> */}
       <AllRoutes/>
-      {/* <SignUp /> */}
+    
       <Footer/>
       
     </div>
