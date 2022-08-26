@@ -16,6 +16,8 @@ import {
 import { getCartData } from "../Redux/CartReducer/action";
 import axios from "axios";
 
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 const breakpoints = {
   sm: "column",
@@ -62,7 +64,8 @@ const ProductDetails = () => {
       title:singleProd[0].title,
       price:singleProd[0].Price,
       size:selectSize,
-      quantity:qty
+      quantity:qty,
+      image: singleProd[0].images
     }
      
     console.log(newData)
@@ -76,6 +79,13 @@ const ProductDetails = () => {
     setSize('')
   }
 
+
+  useEffect(()=>{
+    
+    Aos.init({duration:1000})
+    
+  },[])
+
   return (
     <Flex    justifyContent="space-evenly"   border={"1px solid red"}
      margin={"2rem 0 5rem 0"}
@@ -87,23 +97,23 @@ const ProductDetails = () => {
       padding={"1rem"}
       gap="1rem"
        > 
-       <Box bg={"black"} color="white" width={text_width} position={"relative"} top="1rem" left="1rem"><Text>Sale</Text></Box>         
-        <Image src={singleProd[0]?.images}   //border="1px solid red"
+       <Box data-aos='fade-up' bg={"black"} color="white" width={text_width} position={"relative"} top="1rem" left="1rem"><Text>Sale</Text></Box>         
+        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="60%"
         cursor={"pointer"}
         />
 
         <Box display={"flex"}>
            
-        <Image src={singleProd[0]?.images}   //border="1px solid red"
+        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
 
-        <Image src={singleProd[0]?.images}   //border="1px solid red"
+        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
 
-        <Image src={singleProd[0]?.images}   //border="1px solid red"
+        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
           
