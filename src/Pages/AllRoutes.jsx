@@ -21,8 +21,9 @@ const AllRoutes = () => {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/wishlist' element={<WishList/>} />
         <Route path='/checkout' element={<Checkout/>} />
-        <Route path='/SignIn' element={<SignIn/>} />
-        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/sign-in' element={<SignIn/>} />
+        <Route path='/sign-up' element={<SignUp/>} />
+        <Route path='*' element={<div style={{padding:"200px"}}>This page does not exist :((</div>} />
     </Routes>
   )
 }
