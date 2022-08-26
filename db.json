@@ -20,18 +20,22 @@
       "price": "900",
       "size": "S",
       "quantity": 1
+    },
+    {
+      "id": 4,
+      "title": "FINACHI Premium Cotton T-Shirts Combo",
+      "price": "800",
+      "size": "",
+      "quantity": 2
     }
   ],
-
-    "Contact":[
-        {
-            "id":1,
-            "name": "John",
-            "email": "john@example.com",
-            "phone": "123-456-1234",
-            "message": "John Smith"
-        }
-    ]
-
-  
+  "Contact": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@example.com",
+      "phone": "123-456-1234",
+      "message": "John Smith"
+    }
+  ]
 }
