@@ -24,7 +24,7 @@ const Items = ({ name, type, priceFn }) => {
           priceFn(type);
         }}
       />
-      <Text>{type}</Text>
+      <Text color={"#818181"}  >{type}</Text>
     </Flex>
   );
 };
@@ -46,7 +46,7 @@ export const Price = () => {
   },[priceRange])
 
   return (
-    <Accordion allowToggle width={"60%"}>
+    <Accordion allowToggle width={"80%"}>
       <AccordionItem>
         <h2>
           <AccordionButton>
