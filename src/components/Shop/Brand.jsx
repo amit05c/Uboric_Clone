@@ -21,7 +21,7 @@ const Items = ({  type, BrandFn }) => {
           BrandFn(type);
         }}
       />
-      <Text>{type}</Text>
+      <Text color={"#818181"} >{type}</Text>
     </Flex>
   );
 };
@@ -50,7 +50,7 @@ export const Brand = () => {
     
 
   return (
-    <Accordion allowToggle width={"60%"}>
+    <Accordion allowToggle width={"80%"}>
       <AccordionItem md={"1rem"}>
         <h2>
           <AccordionButton>

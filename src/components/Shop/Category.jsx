@@ -14,14 +14,14 @@ import {
 
 const Items = ({ type, categoryFn }) => {
   return (
-    <Flex>
+    <Flex gap="1rem">
       <Checkbox
     
         onChange={() => {
           categoryFn(type);
         }}
       />
-      <Text>{type}</Text>
+      <Text color={"#818181"}>{type}</Text>
     </Flex>
   );
 };
@@ -51,7 +51,7 @@ export const Category = () => {
   // console.log(category)
 
   return (
-    <Accordion allowToggle width={"60%"}>
+    <Accordion allowToggle width={"80%"}>
       <AccordionItem>
         <h2>
           <AccordionButton>
@@ -85,6 +85,8 @@ export const Category = () => {
 
 <Items
             // title={"Price"}
+            
+
             name="Category"
             type={"Bathroom Accessories"}
             categoryFn={categoryFn}
