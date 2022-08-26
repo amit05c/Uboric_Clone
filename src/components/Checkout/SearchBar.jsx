@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useThrottle } from "use-throttle";
+import {Input} from "@chakra-ui/react"
 
-const SearchBar = ({ inputQueryHandler, suggestions }) => {
+const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
   const [inputText, setInputText] = useState("");
   const [active, setActive] = useState(0);
   const scrollRef = useRef();
@@ -50,18 +51,13 @@ const SearchBar = ({ inputQueryHandler, suggestions }) => {
 
   useEffect(() => {
     inputQueryHandler(throttledText);
-  }, [inputQueryHandler, throttledText]);
-
-  //   useEffect(() => {
-  //     //set the query string in App.js
-  //     inputQueryHandler(inputText);
-  //   }, [inputText, inputQueryHandler]);
+  }, [inputQueryHandler, throttledText]);  
 
   return (
     <Wrapper onKeyUp={handleActiveSuggestions}>
-      <SearchBarWrapper>
-        <InputWrapper value={inputText} onChange={handleInputTextChange} />
-      </SearchBarWrapper>
+      {/* <SearchBarWrapper> */}
+        <Input value={inputText} onChange={handleInputTextChange} borderRadius="none" placeholder={label} size={"lg"}/>
+      {/* </SearchBarWrapper> */}
       {suggestions.length > 0 && (
         <SearchBarSuggestion ref={scrollRef} active={active} limit={5}>
           {suggestions.map((item, index) => {
@@ -106,28 +102,8 @@ const SearchBarSuggestion = styled.div`
   }
 `;
 
-const SearchBarWrapper = styled.div`
-  border: 1px solid black;
-  display: flex;
-  padding: 5px 10px;
-  align-items: center;
-`;
-
-const InputWrapper = styled.input`
-  flex: 1;
-  font-size: 20px;
-  border: none;
-  outline: none;
-`;
-
 const Wrapper = styled.div`
-  max-width: 400px;
+  // max-width: 400px;
   margin: auto;
 `;
 
-// Redux -> To store and retrieve data,
-// To store async functions to ensure it can be used by all the components
-// Custom Compoenents
-//Performance optimization -> React.memo, useMemo, useCallback
-// Custom Hooks
-// TypeScript, Testing
