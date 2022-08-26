@@ -26,8 +26,11 @@ const ProductDetails = () => {
   const [selectSize,setSize]= useState('')
   const [qty,setQty]= useState(0)
   
-
-  const singleProd = products.filter((el) => el.id == id);
+  const singleProd = products.filter((el) => el.id === id);
+  const sizes = singleProd?.size?.split(" ").map(Number);
+  console.log(sizes);
+  console.log(singleProd);
+  console.log(id);
     
 
   useEffect(() => {
