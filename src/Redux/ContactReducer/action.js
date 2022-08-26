@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./actionTypes";
 
-const getContactMessage = (payload) => (dispatch) => {
+export const getContactMessage = () => (dispatch) => {
     dispatch({ type: types.GET_MESSAGE_REQUEST });
      axios
       .get("http://localhost:8080/Contact")
@@ -13,17 +13,13 @@ const getContactMessage = (payload) => (dispatch) => {
       });
   };
 
-  const updateContactMessage = (payload) => (dispatch) => {
+  export const updateContactMessage = (id, payload) => (dispatch) => {
     dispatch({ type: types.ADD_MESSAGE_REQUEST });
   
     return axios
-      .post(`http://localhost:8080/Contact`, payload)
+      .patch(`http://localhost:8080/Contact/${id}`, payload)
       .then((r) => {
         dispatch({ type: types.ADD_MESSAGE_SUCCESS, payload: r.data });
-        return types.ADD_MESSAGE_SUCCESS
       })
       .catch((e) => dispatch({ type: types.ADD_MESSAGE_ERROR, payload: e }));
   };
-
-
-  export {getContactMessage, updateContactMessage}
