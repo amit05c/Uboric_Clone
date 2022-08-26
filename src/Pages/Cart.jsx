@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import {
   Box,
@@ -11,17 +11,29 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "../components/Cart/CartItem";
+import { useSelector,useDispatch } from "react-redux";
+import {getCartData} from "../Redux/CartReducer/action"
+
 
   
 const Cart = () => {
 
-  const data = {
-    title:"dklasjdkajsdklajskdjas",
-    price: "895.00",
-    size: "M",
-    colour: "mixed",
-    src : "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-  }
+  const cartData = useSelector((store)=>store.CartReducer.cartData)
+  const dispatch = useDispatch()
+  console.log(cartData)
+
+  useEffect(()=>{
+    dispatch(getCartData())
+  },[])
+
+
+  // const data = {
+  //   title:"dklasjdkajsdklajskdjas",
+  //   price: "895.00",
+  //   size: "M",
+  //   colour: "mixed",
+  //   src : "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+  // }
  
   const navigate = useNavigate()
   const [coupon,setCoupon] = useState("")
@@ -60,11 +72,9 @@ const Cart = () => {
         <Box display={"flex"}  gridTemplateColumns={"3fr 2fr"} gap={"3rem"} mt="2rem" position="relative">
           <Box width={"60%"}>
             <Box>
-              <CartItem {...data}/>
-              <CartItem {...data}/>
-              <CartItem {...data}/>
-              <CartItem {...data}/>
-              <CartItem {...data}/>
+              {cartData.length > 0 && cartData.map((item)=>(
+                <CartItem key={item.id} {...item}/>
+              ))}              
             </Box>
             <Box padding={"2rem"}>
               <Heading size={"sm"} textAlign="start" mb={"1rem"}>
