@@ -1,4 +1,3 @@
-
 // NOTE: use this store variable to create a store.
 import {
     legacy_createStore,
@@ -16,10 +15,7 @@ import {
   const rootReducer = combineReducers({ 
     ProductReducer,
     ContactReducer,
-<<<<<<< HEAD
-=======
-    CartReducer
->>>>>>> b3ac429d0247f54362ebc42fb90348bd6a761c5c
+    CartReducer,
    });
   
   const store = legacy_createStore(
@@ -31,8 +27,7 @@ import {
   
   
   // NOTE: Do not remove this code,its used for calculating your score, if removed it will give you zero marks
-  
   if (window.Cypress) {
     window.store = store;
   }
-
+  
