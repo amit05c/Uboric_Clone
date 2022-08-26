@@ -14,7 +14,8 @@ import {
   Radio,
 } from "@chakra-ui/react";
 
-const Items = ({ name, type, priceFn }) => {
+const Items = ({ name, type, priceFn,filterPrice,start,end }) => {
+
   return (
     <Flex>
       <input type={"radio"}
@@ -22,6 +23,7 @@ const Items = ({ name, type, priceFn }) => {
       name={name}
         onChange={() => {
           priceFn(type);
+          filterPrice(start,end)
         }}
       />
       <Text color={"#818181"}  >{type}</Text>
@@ -29,11 +31,11 @@ const Items = ({ name, type, priceFn }) => {
   );
 };
 
-export const Price = () => {
+export const Price = ({filterPrice}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [priceRange,setPriceRange] = useState([]);
 
-
+  
 
   const PriceRange = (type) => {
     setPriceRange([type])
@@ -63,12 +65,18 @@ export const Price = () => {
             type={"100-500"}
 
             priceFn={PriceRange}
+            filterPrice={filterPrice}
+            start="0"
+            end="500"
           />
           <Items
             // title={"Price"}
             name="price"
             type={"501-1000"}
             priceFn={PriceRange}
+            filterPrice={filterPrice}
+            start="501"
+            end="1000"
           />
         </AccordionPanel>
       </AccordionItem>
