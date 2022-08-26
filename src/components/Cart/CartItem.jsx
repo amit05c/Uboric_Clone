@@ -2,7 +2,7 @@ import { Box, Flex, Image } from "@chakra-ui/react";
 import { BiX } from "react-icons/bi";
 import React, { useState } from "react";
 
-const CartItem = ({ title, price, size, colour, src }) => {
+const CartItem = ({ title, price, size, colour="mixed", src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" }) => {
   const [count, setCount] = useState(1);
 
   return (
