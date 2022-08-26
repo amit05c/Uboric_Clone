@@ -23,11 +23,11 @@ const AboutUs = () => {
       margin="0 auto"
       fontFamily="Roboto"
       padding="10px"
+      paddingBottom="30px"
     >
       <Box>
-        <Image src={`${image}`} alt="About Us" padding="0px 65px 65px 65px" />
+        <Image src={`${image}`} alt="About Us" padding="0px 56px 65px 56px" />
       </Box>
-      <Spacer height="60px" />
       <Box maxW="1100px" padding="20px" margin="0px 0px 0px 90px">
         <Stack textAlign="left">
           <Heading
@@ -107,7 +107,7 @@ const AboutUs = () => {
           </div>
         </Stack>
       </Box>
-      <Spacer height="120px" />
+      <Spacer height="30px" />
       <Box padding="24px 0px 38px" display="flex" justifyContent="space-evenly">
         <Stack>
           <Flex margin="0px auto" height="42px" width="270px">
