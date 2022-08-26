@@ -21,13 +21,16 @@ const ProductDetails = () => {
   const navigate= useNavigate()
   const  {products}  = useSelector((state) => state.ProductReducer);
   const {cartData} = useSelector((state)=>state.CartReducer)
-  console.log(cartData)
+  // console.log(cartData)
   const dispatch = useDispatch();
   const [selectSize,setSize]= useState('')
   const [qty,setQty]= useState(0)
   
-
-  const singleProd = products.filter((el) => el.id == id);
+  const singleProd = products.filter((el) => el.id === id);
+  const sizes = singleProd?.size?.split(" ").map(Number);
+  console.log(sizes);
+  console.log(singleProd);
+  console.log(id);
     
 
   useEffect(() => {
@@ -35,7 +38,7 @@ const ProductDetails = () => {
    dispatch(getCartData())
     
   }, []);
-  console.log(cartData.length+1)
+  // console.log(cartData.length+1)
   const addToCart=async ()=>{
     const newData={
       id:cartData.length+1,
@@ -45,7 +48,7 @@ const ProductDetails = () => {
       quantity:qty
     }
      
-    console.log(newData)
+    // console.log(newData)
     
     
     await axios.post(`http://localhost:8080/cart`,newData)

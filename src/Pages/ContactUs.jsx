@@ -29,10 +29,10 @@ const ContactUs = () => {
     getContactMessage();
   }, [info, dispatch]);
 
-  console.log(info);
+  // console.log(info);
 
   return (
-    <Box height="95vh">
+    <Box height="100vh" paddingBottom="300px">
       <Divider orientation="horizontal" />
       <Box width="1150px" maxH="100%" position="center" margin="auto">
         <Flex flexDirection="column">
