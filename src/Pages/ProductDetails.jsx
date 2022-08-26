@@ -71,7 +71,7 @@ const ProductDetails = () => {
     console.log(newData)
     
     
-    await axios.post(`http://localhost:8080/cart`,newData)
+    await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
     .then(()=>dispatch(getCartData()))
     .then(()=>navigate(`/cart`))
 
