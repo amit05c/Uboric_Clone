@@ -1,55 +1,15 @@
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { BiX } from "react-icons/bi";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteCartData, getCartData, updateCartData } from "../../Redux/CartReducer/action";
+import React, { useState } from "react";
 
+const CartItem = ({ title, price, size, colour="mixed", src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" }) => {
+  const [count, setCount] = useState(1);
 
-const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,getTotal}) => {
-  const dispatch = useDispatch()
-  const cartData = useSelector((store)=>store.CartReducer.cartData)
-  const [count, setCount] = useState(quantity);
-  
-  const increaseCount = (id)=>{
-    setCount((prev) => prev + 1)
-    const params = {
-      quantity:count+1,
-      // title:title,
-      // size:size,
-      // image:image,
-      // id:id,
-      // price:price
-    }
-    // console.log(params)
-    // const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
-    // getTotal(total)
-    dispatch(updateCartData(id,params))
-    dispatch(getCartData())
-  }
-
-  const deceraseCount = (id)=>{
-    setCount((prev) => prev - 1)
-    const params = {
-      quantity:count-1,
-      // title:title,
-      // size:size,
-      // image:image,
-      // id:id,
-      // price:price
-    }
-    dispatch(updateCartData(id,params))
-    dispatch(getCartData())
-  }
-
-  const handleDelete = (id)=>{
-    dispatch(deleteCartData(id))
-    dispatch(getCartData())
-  }
   return (
     <Box padding={"2rem"}>
       <Flex padding={"2rem"} borderBottom={"1px solid grey"}>
         <Box width={"20%"} alignItems={"center"}>
-          <Image src={image} alt={title} width={"100%"} height={"100%"} />
+          <Image src={src} alt={title} width={"100%"} height={"100%"} />
         </Box>
         <Box width={"80%"} padding={"1rem"}>
           <Flex justifyContent={"space-between"}>
@@ -58,32 +18,32 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
             </Box>
             <Box>₹{price}</Box>
           </Flex>
-          <Box textAlign={"start"} color="gray.500" mb={"1rem"}>
+          <Box textAlign={"start"} color="gray.500">
             Size: {size}
           </Box>
-          {/* <Box textAlign={"start"} color="gray.500" mb={"0.5rem"}>
+          <Box textAlign={"start"} color="gray.500" mb={"1rem"}>
             Colour: {colour}
-          </Box> */}
+          </Box>
           <Flex justifyContent={"space-between"}>
             <Flex alignItems={"center"} border="1px solid black">
               <button
                 style={{ fontSize: "1.5rem", padding: "0 1rem" }}
                 disabled={count <= 1}
-                onClick={() => deceraseCount(id)}
+                onClick={() => setCount((prev) => prev - 1)}
               >
                 -
               </button>
               <Box>{count}</Box>
               <button
                 style={{ fontSize: "1.5rem", padding: "0 1rem" }}
-                onClick={() => increaseCount(id)}
+                onClick={() => setCount((prev) => prev + 1)}
               >
                 +
               </button>
             </Flex>
             <Flex alignItems={"center"}>
               <BiX style={{ marginRight: "0.5rem" }} />
-              <button onClick={()=>handleDelete(id)}>Remove</button>
+              <button>Remove</button>
             </Flex>
           </Flex>
         </Box>

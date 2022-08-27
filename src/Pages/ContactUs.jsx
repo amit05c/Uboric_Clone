@@ -14,27 +14,76 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getContactMessage } from "../Redux/ContactReducer/action";
+import React, { useReducer} from "react";
+import { useDispatch } from "react-redux";
+import { updateContactMessage} from "../Redux/ContactReducer/action";
 import phone from "../utils/phone.png";
 import message from "../utils/message.png";
+import { useNavigate } from "react-router-dom";
+import {ADD_MESSAGE_SUCCESS } from "../Redux/ContactReducer/actionTypes";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "name":
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case "email":
+      return {
+        ...state,
+        email: action.payload,
+      };
+
+    case "phone":
+      return {
+        ...state,
+        phone: action.payload,
+      };
+
+    case "message":
+      return {
+        ...state,
+        message: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+const initialState = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+};
+
 
 const ContactUs = () => {
-  const info = useSelector((state) => console.log(state.ContactReducer));
+  // const info = useSelector((state) => state.ContactReducer);
   const dispatch = useDispatch();
-  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+  const [state, setMessage] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    getContactMessage();
-  }, [info, dispatch]);
+
+  const messageHandler = () => {
+    dispatch(updateContactMessage(state)).then((r) => {
+      if (r === ADD_MESSAGE_SUCCESS) {
+        navigate("/", { replace: true });
+      }
+    });
+  };
+
+  // useEffect(() => {
+  //     dispatch(getContactMessage())
+  // }, [info, dispatch]);
 
   // console.log(info);
 
   return (
-    <Box height="100vh" paddingBottom="300px">
+    <Box maxH="100vh" paddingBottom="300px"  marginBottom="100px" >
       <Divider orientation="horizontal" />
-      <Box width="1150px" maxH="100%" position="center" margin="auto">
+      <Box maxW="1150px" maxH="100%" position="center" margin="auto">
         <Flex flexDirection="column">
           <Box width="100%">
             {/* top div */}
@@ -63,7 +112,7 @@ const ContactUs = () => {
             paddingBottom="80px"
           >
             <Flex>
-              <Box flex="1.2" maxH="100%">
+              <Box flex="1.2" maxH="100%" padding="10px" >
                 <Flex padding="7px 0px 26px">
                   <Box>
                     <Image src={`${phone}`} alt="call us" maxW="30px" />
@@ -124,48 +173,80 @@ const ContactUs = () => {
                   <Text fontSize="md">uboricllp@gmail.com</Text>
                 </Box>
               </Box>
-              <Box flex="2.8" padding="0px 30px 0px 30px">
-                <FormControl>
+              <Box flex="2.8" >
+             
                   <Stack spacing={8}>
-                    <Input
+                    <Box  background="none"
+                      color="none">
+                      <FormControl>
+                      <Input
                       focusBorderColor="black"
                       errorBorderColor="red.300"
                       type="text"
+                      value={state.name}
+                      onChange={(e) =>
+                        setMessage({ type: "name", payload: e.target.value })
+                      }
                       placeholder="Your Name *"
                       size="lg"
                       _placeholder={{ color: "black.300", fontSize: "medium" }}
                       borderRadius="0px"
                     />
+                      </FormControl>
+                    </Box>
+                   <Box>
+                    <FormControl>
                     <Input
                       focusBorderColor="black"
                       errorBorderColor="red.300"
                       type="email"
+                value={state.email}
+                onChange={(e) =>
+                  setMessage({ type: "email", payload: e.target.value })
+                }
                       placeholder="Your Email *"
                       size="lg"
                       _placeholder={{ color: "black.400", fontSize: "medium" }}
                       borderRadius="0px"
                     />
-                    <Input
+                    </FormControl>
+                   </Box>
+                    <Box>
+                      <FormControl>
+                      <Input
                       focusBorderColor="black"
                       errorBorderColor="red.300"
                       type="number"
+                      value={state.phone}
+                      onChange={(e) =>
+                        setMessage({ type: "phone", payload: e.target.value })
+                      }
                       placeholder="Your Phone *"
                       size="lg"
                       _placeholder={{ color: "black.400", fontSize: "medium" }}
                       borderRadius="0px"
                     />
-                    <Textarea
-                      value={value}
+                      </FormControl>
+                    </Box>
+                    <Box>
+                      <FormControl>
+                      <Textarea
                       placeholder="Message *"
                       height="150px"
-                      type="text"
                       focusBorderColor="black"
                       errorBorderColor="red.300"
                       borderRadius="0px"
+                      type="text"
+                value={state.message}
+                onChange={(e) =>
+                  setMessage({ type: "message", payload: e.target.value })
+                }
                     />
+                      </FormControl>
+                    </Box>
                   </Stack>
-                </FormControl>
                 <Button
+                onClick={messageHandler}
                   borderRadius="0px"
                   color="white"
                   background="#302C26"
