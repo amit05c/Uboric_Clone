@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Breadcrumb,
@@ -12,9 +12,44 @@ import {
   Input,
   Link,
   Stack,
+  useToast,
 } from "@chakra-ui/react";
+import {useNavigate} from 'react-router-dom'
+import { useDispatch,useSelector } from "react-redux";
+import { login } from "../Redux/AuthReducer/action";
+import { LOGIN_SUCCESS } from "../Redux/AuthReducer/actionTypes";
 
 const SignIn = () => {
+
+  const toast = useToast()
+  const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isLoading = useSelector((state) => console.log(state.AuthReducer.isLoading));
+
+    const loginHandler = () => {
+      if (email && password) {
+        const params = {
+          email,
+          password,
+        };
+        dispatch(login(params)).then((res) => {
+          if (res === LOGIN_SUCCESS) {
+              toast({
+                description: "Signed in successfully",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
+            navigate("/", { replace: true });
+          } else {
+            //err
+          }
+        });
+      }
+    };
+
   return (
     <Box height="78vh" bg="#ffffff" padding="0px">
       <Divider orientation="horizontal" />
@@ -50,6 +85,8 @@ const SignIn = () => {
                   focusBorderColor="black"
                   errorBorderColor="red.300"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   size="lg"
                   borderRadius="0px"
                 />
@@ -59,13 +96,13 @@ const SignIn = () => {
               <FormControl>
                 <FormLabel fontWeight="hairline">Password *</FormLabel>
                 <Input
-                  min={6}
-                  max={12}
                   focusBorderColor="black"
                   errorBorderColor="red.300"
                   type="number"
                   size="lg"
                   borderRadius="0px"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </FormControl>
             </Box>
@@ -88,6 +125,8 @@ const SignIn = () => {
               background: "#ffffff",
               border: "1px solid black",
             }}
+            onClick={loginHandler}
+                  isLoading={isLoading}
           >
             Sign Up
           </Button>
