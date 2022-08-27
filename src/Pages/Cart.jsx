@@ -56,7 +56,7 @@ const Cart = () => {
   return (
     <Box>
       <Heading>Cart</Heading>    
-      <Box>
+      <Box height={cartData.length ? "100%" :"100vh"}>
         <Box display={"flex"}  gridTemplateColumns={"3fr 2fr"} gap={"3rem"} mt="2rem" position="relative">
           <Box width={"60%"}>
             <Box>

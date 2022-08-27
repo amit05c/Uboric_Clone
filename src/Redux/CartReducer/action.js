@@ -45,7 +45,7 @@ const deleteCartFailure = ()=>{
 }
 export const updateCartData = (id,params)=>(dispatch)=>{
     dispatch(updateCartRequest())
-    return axios.patch(`http://localhost:8080/cart/${id}`,params
+    return axios.put(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata/${id}`,params
       ).then((res)=>{
         dispatch(updateCartSuccess(res.data))
     }).then((dispatch(getCartData())))
@@ -56,7 +56,7 @@ export const updateCartData = (id,params)=>(dispatch)=>{
 
 export const deleteCartData = (id)=>(dispatch)=>{
     dispatch(deleteCartRequest())
-    return axios.delete(`http://localhost:8080/cart/${id}`).then((res)=>{
+    return axios.delete(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata/${id}`).then((res)=>{
         dispatch(deleteCartSuccess(res.data))
     }).then(dispatch(getCartData()))
     .catch((e)=>{
@@ -66,7 +66,7 @@ export const deleteCartData = (id)=>(dispatch)=>{
 
 export const getCartData =  ()=>async(dispatch)=> {
         dispatch(handleCartRequest())
-      await axios.get(`http://localhost:8080/cart`)
+      await axios.get(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`)
       .then((res)=>{return dispatch({type: types.GET_CART_SUCCESS,data:(res.data)})})
         .catch(e=>dispatch(handleCartFailure(e)))
 }
