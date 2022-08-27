@@ -1,8 +1,8 @@
-import First from "../slider/assets/First.jpg";
-import vegies from "../slider/assets/vegies.png";
-import one from "../slider/assets/one.png";
-import Third from "../slider/assets/Third.jpg";
-// import { Button } from "@chakra-ui/react";
+import First from "./assets/First.jpg";
+import vegies from "./assets/vegies.png";
+import one from "./assets/one.png";
+import Third from "./assets/Third.jpg"
+
 
 export default 
  [

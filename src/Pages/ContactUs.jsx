@@ -81,7 +81,9 @@ const ContactUs = () => {
   // console.log(info);
 
   return (
-    <Box maxH="100vh" paddingBottom="300px"  marginBottom="100px" >
+
+    <Box h="105vh" paddingBottom="300px"  marginBottom="100px" >
+
       <Divider orientation="horizontal" />
       <Box maxW="1150px" maxH="100%" position="center" margin="auto">
         <Flex flexDirection="column">
@@ -252,11 +254,7 @@ const ContactUs = () => {
                   background="#302C26"
                   padding="26px"
                   marginTop="50px"
-                  _hover={{
-                    color: "#302C26",
-                    background: "#ffffff",
-                    border: "1px solid black",
-                  }}
+                  _hover={{color:"#302C26", background:"#ffffff", border:"1px solid black"}}
                 >
                   Send Message
                 </Button>
