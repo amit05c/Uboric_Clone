@@ -81,7 +81,9 @@ const ContactUs = () => {
   // console.log(info);
 
   return (
+
     <Box h="105vh" paddingBottom="300px"  marginBottom="100px" >
+
       <Divider orientation="horizontal" />
       <Box maxW="1150px" maxH="100%" position="center" margin="auto">
         <Flex flexDirection="column">

@@ -26,8 +26,6 @@ const Cart = () => {
   useEffect(()=>{ 
     dispatch(getCartData())
   },[cartData.length,dispatch])
- 
-
 
   const navigate = useNavigate()
   const [coupon,setCoupon] = useState("")
