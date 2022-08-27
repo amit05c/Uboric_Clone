@@ -11,24 +11,34 @@ import {
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Textarea,
+  Image,
+  RadioGroup,
+  Stack,
+  Radio,
 } from "@chakra-ui/react";
 import styles from "../Styles/checkout.module.css";
 import SearchBar from "../components/Checkout/SearchBar";
 import countries from "../utils/contries.json";
 import state from "../utils/states.json";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartData } from "../Redux/CartReducer/action";
 const Checkout = () => {
   const [show, setShow] = useState(false);
 
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [query1, setQuery1] = useState("");
+  const [suggestions1, setSuggestions1] = useState([]);
 
   const queryHandler = useCallback((val) => {
-    console.log("The query is", val);
-    //API call
     setQuery(val);
   }, []);
 
-  //the logic of searching cities whenever the query changes
+  const queryHandler1 = useCallback((val) => {
+    setQuery1(val);
+  }, []);
+
   useEffect(() => {
     if (query === "") {
       setSuggestions([]);
@@ -44,38 +54,58 @@ const Checkout = () => {
     }
   }, [query]);
 
-  const [query1, setQuery1] = useState("");
-  const [suggestions1, setSuggestions1] = useState([]);
-
-  const queryHandler1 = useCallback((val) => {
-    // console.log("The query is", val);
-    //API call
-    setQuery1(val);
-  }, []);
-
-  //the logic of searching cities whenever the query changes
   useEffect(() => {
     if (query1 === "") {
       setSuggestions1([]);
     } else {
       let newCountriesSuggestions = state
         .filter((item) => {
-          return item.state.toLowerCase().indexOf(query1) !== -1
-            ? true
-            : false;
+          return item.state.toLowerCase().indexOf(query1) !== -1 ? true : false;
         })
         .map((item) => item.state);
       setSuggestions1(newCountriesSuggestions);
     }
   }, [query1]);
 
+  // ----------------------------- Logic for radio buttons -----------------------------
+
+  const [value, setValue] = React.useState("Cash on delivery");
+
+  // ----------------------------- Logic for Claculating Total -----------------------------
+
+  const dispatch = useDispatch();
+  const cartData = useSelector((store) => store.CartReducer.cartData);
+  const subTotal = cartData
+    .map((item) => item.price * item.quantity)
+    .reduce((a, b) => a + b, 0);
+  const discount10 = (10 / 100) * subTotal;
+  const total = subTotal - discount10;
+  // console.log(discount10);
+
+  // const [discountShow,setDiscountShow] = useState(true)
+  // if(value === "Cash on delivery")
+  // {
+  //   setDiscountShow(false)
+  // }
+  useEffect(() => {
+    dispatch(getCartData());
+  }, []);
+
+  const getSearchData = (country)=>{
+    console.log("country",country)
+  } 
+  const getSearchData1 = (state)=>{
+    console.log("state",state)
+  } 
   return (
     <Box>
-      <Box>
+      <Box p={"3rem"}>
         <Text textAlign={"start"}>Home » Checkout</Text>
       </Box>
       <Box>
-        <Heading>Chechout</Heading>
+        <Heading size={"lg"} m="1rem 2rem 6rem">
+          Chechout
+        </Heading>
       </Box>
       <Box
         textAlign={"start"}
@@ -121,98 +151,331 @@ const Checkout = () => {
         </Button>
       </Box>
       <Box padding={"3rem"}>
-        <Grid gridTemplateColumns="5fr 3fr" gap={"5rem"}>
-          <Box border={"1px solid black"}>
-            <Heading textAlign={"start"} size="md">
-              Billing details
-            </Heading>
-            {/* <FormControl></FormControl> */}
+        <Grid gridTemplateColumns="5fr 3fr" gap={"4rem"}>
+          <Box>
             <Box>
-              <Flex gap={"2rem"}>
-                <FormControl isRequired>
-                  <FormLabel>First name</FormLabel>
+              <Heading textAlign={"start"} size="md" mb={"1.7rem"}>
+                Billing details
+              </Heading>
+              {/* <FormControl></FormControl> */}
+              <Box>
+                <Flex gap={"2rem"} mb="1.3rem">
+                  <FormControl isRequired>
+                    <FormLabel>First name</FormLabel>
+                    <Input borderRadius={"none"} size="lg" />
+                  </FormControl>
+                  <FormControl isRequired>
+                    <FormLabel>Last name</FormLabel>
+                    <Input borderRadius={"none"} size="lg" />
+                  </FormControl>
+                </Flex>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl>
+                  <FormLabel>Company name (optional)</FormLabel>
                   <Input borderRadius={"none"} size="lg" />
                 </FormControl>
+              </Box>
+              <Box mb="1.3rem">
                 <FormControl isRequired>
-                  <FormLabel>Last name</FormLabel>
+                  <FormLabel>Country / Region</FormLabel>
+                  <SearchBar
+                    inputQueryHandler={queryHandler}
+                    suggestions={suggestions}
+                    getSearchData={getSearchData}
+                  />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>Street address</FormLabel>
+                  <Input
+                    size="lg"
+                    placeholder="House number and street name"
+                    borderRadius={"none"}
+                    mb="1rem"
+                  />
+                  <Input
+                    size="lg"
+                    placeholder="Apartment, siute, unit, etc. (optional)"
+                    borderRadius={"none"}
+                  />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>Town / City </FormLabel>
                   <Input borderRadius={"none"} size="lg" />
                 </FormControl>
-              </Flex>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>State</FormLabel>
+                  <SearchBar
+                    inputQueryHandler={queryHandler1}
+                    suggestions={suggestions1}
+                    getSearchData={getSearchData1}
+                  />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>PIN Code</FormLabel>
+                  <Input borderRadius={"none"} size="lg" />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>Phone</FormLabel>
+                  <Input borderRadius={"none"} size="lg" />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>PIN Code</FormLabel>
+                  <Input borderRadius={"none"} size="lg" />
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
+                  <FormLabel>Email address *</FormLabel>
+                  <Input borderRadius={"none"} size="lg" />
+                </FormControl>
+              </Box>
             </Box>
             <Box>
+              <Heading textAlign={"start"} m="2rem 0" size={"md"}>
+                Additional information
+              </Heading>
               <FormControl>
-                <FormLabel>Company name (optional)</FormLabel>
-                <Input borderRadius={"none"} size="lg" />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>Country / Region</FormLabel>
-                <SearchBar
-                  inputQueryHandler={queryHandler}
-                  suggestions={suggestions}
-                  label={"Country"}
-                />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>Street address</FormLabel>
-                <Input
-                  size="lg"
-                  placeholder="House number and street name"
+                <FormLabel>Order notes (optional)</FormLabel>
+                <Textarea
+                  placeholder="Notes about your order, e.g. special notes for delivery."
                   borderRadius={"none"}
-                  mb="1rem"
+                  height="10rem"
                 />
-                <Input
-                  size="lg"
-                  placeholder="Apartment, siute, unit, etc. (optional)"
-                  borderRadius={"none"}
-                />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>Town / City </FormLabel>
-                <Input borderRadius={"none"} size="lg" />
-              </FormControl>
-            </Box>
-            <Box>
-            <FormControl isRequired>
-                <FormLabel>State</FormLabel>
-                <SearchBar
-                  inputQueryHandler={queryHandler1}
-                  suggestions={suggestions1}
-                  label={"State"}
-                />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>PIN Code</FormLabel>
-                <Input borderRadius={"none"} size="lg" />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>Phone</FormLabel>
-                <Input borderRadius={"none"} size="lg" />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>PIN Code</FormLabel>
-                <Input borderRadius={"none"} size="lg" />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl isRequired>
-                <FormLabel>Email address *</FormLabel>
-                <Input borderRadius={"none"} size="lg" />
               </FormControl>
             </Box>
           </Box>
-          <Box border={"1px solid black"}></Box>
+          <Box>
+            <Box>
+              <Heading textAlign={"start"} size={"md"}>
+                Your orders
+              </Heading>
+              <Box
+                border={"1px solid"}
+                borderColor="gray.300"
+                padding="0 2rem"
+                m={"1.5rem 0"}
+              >
+                <Flex
+                  justifyContent={"space-between"}
+                  p="1rem 2rem"
+                  borderBottom={"1px solid"}
+                  borderColor="gray.300"
+                >
+                  <Text>Product</Text>
+                  <Text>Subtotal</Text>
+                </Flex>
+                <Box>
+                  {cartData.length > 0 &&
+                    cartData.map((item) => (
+                      <Box p="1rem 0" key={item.id} textAlign="start">
+                        <Flex
+                          justifyContent={"space-between"}
+                          alignItems="center"
+                          gap={"1rem"}
+                        >
+                          <Box width={"80%"}>
+                            <Box mb={".5rem"}>
+                              {item.title} x {item.quantity}
+                            </Box>
+                            <Box>Size: {item.size}</Box>
+                          </Box>
+                          <Box width={"20%"}>₹{item.price}</Box>
+                        </Flex>
+                      </Box>
+                    ))}
+                </Box>
+
+                <Flex
+                  borderBottom={"1px solid"}
+                  borderColor="gray.300"
+                  justifyContent={"space-between"}
+                  mb=".5rem"
+                  pb={".5rem"}
+                >
+                  <Box as="b" fontSize="lg">
+                    Subtotal
+                  </Box>
+                  <Box as="b" fontSize="lg">
+                    ₹{subTotal}
+                  </Box>
+                </Flex>
+                <Flex
+                  borderBottom={"1px solid"}
+                  borderColor="gray.300"
+                  justifyContent={"space-between"}
+                  mb=".5rem"
+                  pb={".5rem"}
+                  // className={discountShow ? styles.showDiscount : styles.hideDiscount}
+                >
+                  <Box as="b" fontSize="lg">
+                    DISCOUNT (10% Apply)
+                  </Box>
+                  <Box as="b" fontSize="lg">
+                    -₹{Math.floor(discount10)}
+                  </Box>
+                </Flex>
+                <Flex justifyContent={"space-between"}>
+                  <Box as="b" fontSize="lg">
+                    Total
+                  </Box>
+                  <Box as="b" fontSize="lg">
+                    ₹{total}
+                  </Box>
+                </Flex>
+                <Flex
+                  borderBottom={"1px solid"}
+                  borderColor="gray.300"
+                  mb="1rem"
+                >
+                  <Text pb={"1rem"} pt={"1.5rem"} fontSize={"sm"}>
+                    Or 3 interest free payments of{" "}
+                    <Text as={"b"}>₹{Math.floor(total / 3)}</Text> with
+                  </Text>
+                  <Image
+                    src="https://www.uboric.com/wp-content/plugins/simpl-pay-in-3-for-woocommerce/public/images/brand.svg"
+                    width={"70px"}
+                    pl={"0.5rem"}
+                  />
+                </Flex>
+              </Box>
+              <Box
+                border={"1px solid"}
+                borderColor="gray.300"
+                p="0.5rem"
+                m={"1.5rem 0"}
+              >
+                <RadioGroup onChange={setValue} value={value}>
+                  <Stack direction="column" textAlign={"start"}>
+                    <Flex
+                      alignItems={"center"}
+                      border={"1px solid"}
+                      borderColor="gray.300"
+                      padding="0 1rem"
+                      height={"4rem"}
+                    >
+                      <Radio value="Cash on delivery">Cash on delivery</Radio>
+                    </Flex>
+
+                    <Flex
+                      alignItems={"center"}
+                      border={"1px solid"}
+                      borderColor="gray.300"
+                      padding="0 1rem"
+                      height={"4rem"}
+                    >
+                      <Radio value="pay with paytm">
+                        pay with paytm
+                        <Image
+                          src="https://www.uboric.com/wp-content/plugins/woo-paytm-payment-gateway/images/logo.gif"
+                          width={"5rem"}
+                          display="inline"
+                          ml={"1rem"}
+                        />
+                      </Radio>
+                    </Flex>
+                    <Flex
+                      alignItems={"center"}
+                      border={"1px solid"}
+                      borderColor="gray.300"
+                      padding="0 1rem"
+                      height={"4rem"}
+                    >
+                      <Radio value="Razorpay">
+                        Razorpay
+                        <Image
+                          src="https://cdn.razorpay.com/static/assets/logo/payment.svg"
+                          width={"9rem"}
+                          display="inline"
+                          ml={"1rem"}
+                        />
+                      </Radio>
+                    </Flex>
+                    <Flex
+                      alignItems={"center"}
+                      border={"1px solid"}
+                      borderColor="gray.300"
+                      padding="0 1rem"
+                      height={"4rem"}
+                    >
+                      <Radio value="Simpl">
+                        Simpl
+                        <Image
+                          src="https://www.uboric.com/wp-content/plugins/simpl-pay-in-3-for-woocommerce/public/images/brand.svg"
+                          width={"5rem"}
+                          display="inline"
+                          ml={"1rem"}
+                        />
+                      </Radio>
+                    </Flex>
+                  </Stack>
+                </RadioGroup>
+              </Box>
+              <Box m={"1.5rem 0"}>
+                <Button
+                  bgColor="black"
+                  color={"white"}
+                  size="lg"
+                  width={"100%"}
+                  borderRadius={"none"}
+                  _hover="none"
+                >
+                  Place Order
+                </Button>
+              </Box>
+              <Box
+                textAlign={"start"}
+                p="1.5rem 0.5rem 1.5rem 2.5rem"
+                lineHeight={"2.3rem"}
+                border="2px solid black"
+                borderRadius={"3px"}
+                m=""
+                className={styles.gradient}
+              >
+                <Text>
+                  <span>Guaranteed delivery with 100% original products</span>
+                </Text>
+                <Text>
+                  <span>COD available</span> on some categories
+                </Text>
+                <Text>
+                  FOR ONLINE PAYMENT <span>EXTRA ₹10% DISCOUNT</span> ON ORDERS
+                  <span> ABOVE ₹500</span>
+                </Text>
+                <Text>
+                  <span>EMI</span> OPTION AVAILABLE
+                </Text>
+                <Text>
+                  TO AVAIL MORE BANK OPTIONS ON <span>EMI</span> PURCHASE ABOVE
+                  <span> RS. 3000</span>
+                </Text>
+                <Text>
+                  <span>FREE DELIVERY</span> ON ORDERS
+                  <span> AVOVE 500 FOR COD</span> & FOR
+                  <span> ONLINE PAYMENT</span>
+                </Text>
+                <Text>
+                  <span>FREE DELIVERY</span> AVAILABLE ON ALL ORDERS
+                </Text>
+                <Text>
+                  BELOW ₹500 <span>CASH ON DELIVERY</span> CHARGES
+                  <span> ₹49</span>
+                </Text>
+              </Box>
+            </Box>
+          </Box>
         </Grid>
       </Box>
     </Box>
