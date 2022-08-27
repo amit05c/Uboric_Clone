@@ -90,6 +90,13 @@ const Checkout = () => {
   useEffect(() => {
     dispatch(getCartData());
   }, []);
+
+  const getSearchData = (country)=>{
+    console.log("country",country)
+  } 
+  const getSearchData1 = (state)=>{
+    console.log("state",state)
+  } 
   return (
     <Box>
       <Box p={"3rem"}>
@@ -175,7 +182,7 @@ const Checkout = () => {
                   <SearchBar
                     inputQueryHandler={queryHandler}
                     suggestions={suggestions}
-                    label={"Country"}
+                    getSearchData={getSearchData}
                   />
                 </FormControl>
               </Box>
@@ -207,7 +214,7 @@ const Checkout = () => {
                   <SearchBar
                     inputQueryHandler={queryHandler1}
                     suggestions={suggestions1}
-                    label={"State"}
+                    getSearchData={getSearchData1}
                   />
                 </FormControl>
               </Box>
@@ -317,7 +324,7 @@ const Checkout = () => {
                     DISCOUNT (10% Apply)
                   </Box>
                   <Box as="b" fontSize="lg">
-                    -₹{discount10}
+                    -₹{Math.floor(discount10)}
                   </Box>
                 </Flex>
                 <Flex justifyContent={"space-between"}>
