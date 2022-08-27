@@ -4,26 +4,34 @@
       "id": 1,
       "title": "FINACHI Premium Cotton T-Shirts Combo",
       "price": "800",
-      "size": "",
-      "quantity": 2,
-      "image": "https://www.uboric.com/wp-content/uploads/2022/08/51mRO9X8L._UL1000_-670x670.jpg"
+      "size": "S",
+      "quantity": 3
     },
     {
       "id": 2,
-      "title": "“Classic” Red Convertible Bra Panty Set With Straps",
-      "price": "500",
-      "size": "32",
-      "quantity": 2,
-      "image": "https://www.uboric.com/wp-content/uploads/2022/08/set.jpg"
+      "title": "FINACHI Premium Cotton T-Shirts Combo",
+      "price": "800",
+      "size": "M",
+      "quantity": 2
+    },
+    {
+      "id": 3,
+      "title": "Comfort” Spaghetti Strap Sports Bra Matching Boyshort",
+      "price": "900",
+      "size": "S",
+      "quantity": 1
     }
   ],
-  "Contact": [
-    {
-      "id": 1,
-      "name": "John",
-      "email": "john@example.com",
-      "phone": "123-456-1234",
-      "message": "John Smith"
-    }
-  ]
+
+    "Contact":[
+        {
+            "id":1,
+            "name": "John",
+            "email": "john@example.com",
+            "phone": "123-456-1234",
+            "message": "John Smith"
+        }
+    ]
+
+  
 }
