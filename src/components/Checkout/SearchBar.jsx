@@ -17,6 +17,7 @@ const SearchBar = ({ inputQueryHandler, suggestions, getSearchData }) => {
   const handleActiveSuggestions = (e) => {
     switch (e.keyCode) {
       //up arrow key code is 38
+      //up arrow key code is 38
       case 38:
         if (active === 1) {
           scrollRef.current.scrollTop = suggestions.length * 38.667;

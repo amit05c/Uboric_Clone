@@ -81,6 +81,7 @@ const Checkout = () => {
   const discount10 = (10 / 100) * subTotal;
   const total = subTotal - discount10;
   // console.log(discount10);
+  // console.log(discount10);
 
   // const [discountShow,setDiscountShow] = useState(true)
   // if(value === "Cash on delivery")

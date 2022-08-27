@@ -24,8 +24,6 @@ const Cart = () => {
 
   useEffect(()=>{
     dispatch(getCartData())
-  },[])
-
 
   // const data = {
   //   title:"dklasjdkajsdklajskdjas",
