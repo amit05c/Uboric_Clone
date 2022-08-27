@@ -89,6 +89,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
         </Box>
       </Flex>
     </Box>
+    // hello
   );
 };
 

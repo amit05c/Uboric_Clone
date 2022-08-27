@@ -26,6 +26,9 @@ const Cart = () => {
   useEffect(()=>{ 
     dispatch(getCartData())
   },[cartData.length,dispatch])
+  // useEffect(()=>{ 
+  //   dispatch(getCartData())
+  // },[cartData.length,dispatch])
  
 
 
