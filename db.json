@@ -22,16 +22,22 @@
       "quantity": 1
     }
   ],
-
-    "Contact":[
-        {
-            "id":1,
-            "name": "John",
-            "email": "john@example.com",
-            "phone": "123-456-1234",
-            "message": "John Smith"
-        }
-    ]
-
-  
+  "Contact": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@example.com",
+      "phone": "123-456-1234",
+      "message": "John Smith"
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john@example.com",
+      "phone": "123-456-1234",
+      "password": "Password"
+    }
+  ]
 }

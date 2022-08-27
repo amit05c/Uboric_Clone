@@ -10,6 +10,9 @@ import Checkout from './Checkout'
 import ContactUs from './ContactUs'
 import WishList from './WishList'
 import SignUp from './SignUp'
+import ReqAuth from "../components/Authentication/ReqAuth"
+
+
 const AllRoutes = () => {
   return (
     <Routes>
