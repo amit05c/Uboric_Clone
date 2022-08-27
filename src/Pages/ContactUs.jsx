@@ -171,7 +171,11 @@ const ContactUs = () => {
                   background="#302C26"
                   padding="26px"
                   marginTop="50px"
-                  _hover={{color:"#302C26", background:"#ffffff", border:"1px solid black"}}
+                  _hover={{
+                    color: "#302C26",
+                    background: "#ffffff",
+                    border: "1px solid black",
+                  }}
                 >
                   Send Message
                 </Button>

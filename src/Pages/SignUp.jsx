@@ -22,7 +22,6 @@ const SignUp = () => {
         width="1150px"
         position="center"
         margin="auto"
-      
         padding="20px 0px 80px 0px"
         height="100%"
       >
@@ -42,7 +41,7 @@ const SignUp = () => {
           </Heading>
         </Box>
         <Divider orientation="horizontal" />
-        <Box width="50%" margin="0 auto" padding="50px 0px 0px 0px" >
+        <Box width="50%" margin="0 auto" padding="50px 0px 0px 0px">
           <Stack spacing={4}>
             <Box background="none" color="none">
               <FormControl>
