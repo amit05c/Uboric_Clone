@@ -18,6 +18,7 @@ import axios from "axios";
 
 import Aos from 'aos'
 import "aos/dist/aos.css"
+import { Alert } from "../components/Shop/Alert";
 
 const breakpoints = {
   sm: "column",
@@ -47,6 +48,7 @@ const ProductDetails = () => {
   const [selectSize,setSize]= useState('')
   const [qty,setQty]= useState(1)
   
+  
   const singleProd = products.filter((el) => el.id === id);
   const sizes = singleProd?.size?.split(" ").map(Number);
   console.log(sizes);
@@ -74,13 +76,17 @@ const ProductDetails = () => {
      
     // console.log(newData)
     
-    
-    await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
-    .then(()=>dispatch(getCartData()))
-    .then(()=>navigate(`/cart`))
+    if(selectSize!=""){
+      await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
+      .then(()=>dispatch(getCartData()))
+      .then(()=>navigate(`/cart`))
 
-    setQty(1)
-    setSize('')
+      setQty(1)
+      setSize('')
+    }else{
+      alert(`Select the size`)
+    }
+  
   }
 
 
@@ -91,33 +97,34 @@ const ProductDetails = () => {
   },[])
 
   return (
-    <Flex    justifyContent="space-evenly"   border={"1px solid red"}
+    <Flex    justifyContent="space-evenly"     // border={"1px solid red"}
      margin={"2rem 0 5rem 0"}
      direction={breakpoints}
      gap="1rem"
     >
-      <Flex width={"40%"}  border={"1px solid black"}
+      <Flex width={"40%"}  border={"2px solid black"}
+      borderRadius="2%"
       direction="column"
       padding={"1rem"}
       gap="1rem"
        > 
        <Box data-aos='fade-up' bg={"black"} color="white" width={text_width} position={"relative"} top="1rem" left="1rem"><Text>Sale</Text></Box>         
-        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
+        <Image  src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="60%"
         cursor={"pointer"}
         />
 
         <Box display={"flex"}>
            
-        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
+        <Image  src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
 
-        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
+        <Image  src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
 
-        <Image data-aos='fade-up' src={singleProd[0]?.images}   //border="1px solid red"
+        <Image  src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="15%"
         />
           
@@ -130,7 +137,7 @@ const ProductDetails = () => {
 
 
       <Flex
-        border={"1px solid black"}
+        // border={"1px solid black"}
         direction="column"
         justifyContent="space-evenly"
        
@@ -174,6 +181,8 @@ const ProductDetails = () => {
        <Box display={"flex"}
         gap="1rem"
         border="2px solid black"
+        borderRadius={"3%"}
+        ml="1rem"
         padding="1rem"
        >
         <Button borderRadius="50%" bg={"#7d7d7d"} disabled={qty==1} onClick={()=>setQty(qty-1)}>-</Button>
@@ -182,7 +191,7 @@ const ProductDetails = () => {
        </Box>
 
         <Box>
-        <Button bg="#1f1f1f" color="white" onClick={addToCart}>add to cart</Button>
+        <Button bg="#1f1f1f" color="white" mt={"1rem"} onClick={addToCart}>Add to cart</Button>
         </Box>
           
         </Flex>

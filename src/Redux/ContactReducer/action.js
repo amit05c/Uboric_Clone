@@ -20,7 +20,7 @@ export const getContactMessage = () => (dispatch) => {
       .post(`http://localhost:8080/Contact`, payload)
       .then((r) => {
         dispatch({ type: types.ADD_MESSAGE_SUCCESS, payload: r.data });
-        return types.ADD_MESSAGE_SUCCESS;
+        return types.ADD_MESSAGE_SUCCESS
       })
       .catch((e) => dispatch({ type: types.ADD_MESSAGE_ERROR, payload: e }));
   };
