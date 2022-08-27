@@ -97,7 +97,7 @@ const Checkout = () => {
       </Box>
       <Box>
         <Heading size={"lg"} m="1rem 2rem 6rem">
-          Chechout
+          Checkout
         </Heading>
       </Box>
       <Box

@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Breadcrumb,
   BreadcrumbItem,
@@ -14,7 +15,7 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { isValidElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContactMessage } from "../Redux/ContactReducer/action";
 import phone from "../utils/phone.png";
@@ -29,12 +30,18 @@ const ContactUs = () => {
     getContactMessage();
   }, [info, dispatch]);
 
+
+  // const isValid = (value) => {
+  //   if(value === ""){
+  //     Alert("Please enter a valid email address")
+  //   }
+  // }
   // console.log(info);
 
   return (
-    <Box height="100vh" paddingBottom="300px">
+    <Box height="800px">
       <Divider orientation="horizontal" />
-      <Box width="1150px" maxH="100%" position="center" margin="auto">
+      <Box width="1150px" position="center" margin="auto" >
         <Flex flexDirection="column">
           <Box width="100%">
             {/* top div */}
@@ -57,13 +64,12 @@ const ContactUs = () => {
           </Box>
           <Box
             width="100%"
-            maxH="100%"
+            height="900px"
             textAlign="left"
             marginTop="50px"
-            paddingBottom="80px"
           >
             <Flex>
-              <Box flex="1.2" maxH="100%">
+              <Box flex="1.2" maxH="100%" padding="0px 30px 0px 30px">
                 <Flex padding="7px 0px 26px">
                   <Box>
                     <Image src={`${phone}`} alt="call us" maxW="30px" />
@@ -124,7 +130,7 @@ const ContactUs = () => {
                   <Text fontSize="md">uboricllp@gmail.com</Text>
                 </Box>
               </Box>
-              <Box flex="2.8" padding="0px 30px 0px 30px">
+              <Box flex="2.8" >
                 <FormControl>
                   <Stack spacing={8}>
                     <Input
