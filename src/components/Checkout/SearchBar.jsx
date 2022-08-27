@@ -2,15 +2,16 @@ import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useThrottle } from "use-throttle";
-import {Input} from "@chakra-ui/react"
+import { Input } from "@chakra-ui/react";
 
-const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
+const SearchBar = ({ inputQueryHandler, suggestions, getSearchData }) => {
   const [inputText, setInputText] = useState("");
   const [active, setActive] = useState(0);
   const scrollRef = useRef();
 
   const handleInputTextChange = (e) => {
     setInputText(e.target.value);
+    getSearchData(e.target.value);
   };
 
   const handleActiveSuggestions = (e) => {
@@ -38,10 +39,6 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
         setActive((prev) => prev + 1);
         break;
 
-      //   case 13:
-      //     navigate(to = `country/${active}`);
-      //     break;
-
       default:
         return;
     }
@@ -51,12 +48,24 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
 
   useEffect(() => {
     inputQueryHandler(throttledText);
-  }, [inputQueryHandler, throttledText]);  
+  }, [inputQueryHandler, throttledText]);
+
+  const handleClick = (data) => {
+    setInputText(data);
+    getSearchData(data);
+  };
 
   return (
     <Wrapper onKeyUp={handleActiveSuggestions}>
       {/* <SearchBarWrapper> */}
-        <Input value={inputText} onChange={handleInputTextChange} borderRadius="none" placeholder={label} size={"lg"}/>
+      <Input
+        value={inputText}
+        // value={searchData}
+        onChange={handleInputTextChange}
+        borderRadius="none"
+        size={"lg"}
+        // defaultValue={searchData}
+      />
       {/* </SearchBarWrapper> */}
       {suggestions.length > 0 && (
         <SearchBarSuggestion ref={scrollRef} active={active} limit={5}>
@@ -66,6 +75,12 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
                 key={index}
                 onMouseOver={() => {
                   setActive(index + 1);
+                }}
+                onClick={() => handleClick(item)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleClick(item);
+                  }
                 }}
               >
                 {item}
@@ -106,4 +121,3 @@ const Wrapper = styled.div`
   // max-width: 400px;
   margin: auto;
 `;
-

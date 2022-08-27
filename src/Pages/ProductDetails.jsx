@@ -63,7 +63,8 @@ const ProductDetails = () => {
   const addToCart=async ()=>{
     
     const newData={
-      id:cartData.length+1,
+      // id:cartData.length+1,
+      id:Date.now(),
       title:singleProd[0].title,
       price:singleProd[0].Price,
       size:selectSize,

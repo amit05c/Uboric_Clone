@@ -23,7 +23,6 @@ const SignIn = () => {
         position="center"
         margin="auto"
         height="100%"
-        
         padding="20px 0px 60px 0px"
       >
         <Box width="20%" textAlign="left" padding="">
