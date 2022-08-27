@@ -20,7 +20,7 @@ import {
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { register } from "../Redux/AuthReducer/action";
-import { REGISTER_SUCCESS } from "../Redux/AuthReducer/actionTypes";
+import { REGISTER_FAILURE, REGISTER_SUCCESS } from "../Redux/AuthReducer/actionTypes";
 
 
 function reducer(state, action) {
@@ -77,6 +77,13 @@ const SignUp = () => {
             isClosable: true,
           })
         navigate("/sign-in", { replace: true });
+      }else if (r === REGISTER_FAILURE) {
+        toast({
+          description: "Please enter credentials",
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
       }
     });
   };

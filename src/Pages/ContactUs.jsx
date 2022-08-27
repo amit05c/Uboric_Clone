@@ -13,6 +13,7 @@ import {
   Stack,
   Text,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
@@ -60,6 +61,7 @@ const initialState = {
 
 const ContactUs = () => {
   // const info = useSelector((state) => state.ContactReducer);
+  const toast = useToast()
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [state, setMessage] = useReducer(reducer, initialState);
@@ -67,6 +69,12 @@ const ContactUs = () => {
   const messageHandler = () => {
     dispatch(updateContactMessage(state)).then((r) => {
       if (r === ADD_MESSAGE_SUCCESS) {
+        toast({
+          description: "Message sent successfully.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
         navigate("/", { replace: true });
       }
     });
