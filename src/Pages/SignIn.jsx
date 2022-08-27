@@ -1,21 +1,8 @@
-import React from "react";
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Divider,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Link,
-  Stack,
-} from "@chakra-ui/react";
+import React from 'react'
 
 const SignIn = () => {
   return (
+<<<<<<< HEAD
     <Box height="78vh" bg="#ffffff" padding="0px">
       <Divider orientation="horizontal" />
       <Box
@@ -96,5 +83,10 @@ const SignIn = () => {
     </Box>
   );
 };
+=======
+    <div>SignIn</div>
+  )
+}
+>>>>>>> parent of d0ff962 (Updated Sign-in and Sign-up)
 
-export default SignIn;
+export default SignIn

@@ -12,7 +12,12 @@ function App() {
     <div className="App">
       <Navbar/>
       {/* <Home/> */}
+<<<<<<< HEAD
       <AllRoutes/>
+=======
+      {/* <AllRoutes/> */}
+      <SignUp />
+>>>>>>> parent of d0ff962 (Updated Sign-in and Sign-up)
       <Footer/>
       
     </div>
