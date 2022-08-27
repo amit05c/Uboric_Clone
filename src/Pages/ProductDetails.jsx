@@ -42,13 +42,16 @@ const ProductDetails = () => {
   const navigate= useNavigate()
   const  {products}  = useSelector((state) => state.ProductReducer);
   const {cartData} = useSelector((state)=>state.CartReducer)
-  console.log(cartData)
+  // console.log(cartData)
   const dispatch = useDispatch();
   const [selectSize,setSize]= useState('')
   const [qty,setQty]= useState(1)
   
-
-  const singleProd = products.filter((el) => el.id == id);
+  const singleProd = products.filter((el) => el.id === id);
+  const sizes = singleProd?.size?.split(" ").map(Number);
+  console.log(sizes);
+  console.log(singleProd);
+  console.log(id);
     
 
   useEffect(() => {
@@ -56,7 +59,7 @@ const ProductDetails = () => {
    dispatch(getCartData())
     
   }, []);
-  console.log(cartData.length+1)
+  // console.log(cartData.length+1)
   const addToCart=async ()=>{
     
     const newData={
@@ -69,10 +72,10 @@ const ProductDetails = () => {
       image: singleProd[0].images
     }
      
-    console.log(newData)
+    // console.log(newData)
     
     
-    await axios.post(`http://localhost:8080/cart`,newData)
+    await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
     .then(()=>dispatch(getCartData()))
     .then(()=>navigate(`/cart`))
 

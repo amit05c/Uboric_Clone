@@ -18,8 +18,24 @@ const Shop = () => {
     const [searchParams] = useSearchParams()
     const location= useLocation()
     const dispatch= useDispatch()
+    const [update,setUpdate]= useState("false")
+    const [updateData,setUpdateData]= useState([])
     // const [data,setData]= useState(products)
-    // console.log(location)
+  
+    console.log(products)
+    
+    const filterPrice= (start,end)=>{
+      setUpdate("true")
+      let newData=products.filter(el=>Number(el.Price)>=Number(start) && Number(el.Price<=Number(end)))
+      setUpdateData(newData)
+    
+    }
+    // console.log(updateData)
+    useEffect(()=>{
+      dispatch(getData())
+    },[update])
+    console.log(update)
+
   
     useEffect(()=>{
       if(location || products.length==0){
@@ -63,7 +79,7 @@ const Shop = () => {
   return (
     <Flex w="100%" >
       <Stack w="30%" gap={"1rem"}>
-        <Price/>
+        <Price filterPrice={filterPrice}/>
         
         <Brand/>
       
@@ -73,10 +89,13 @@ const Shop = () => {
       <Grid templateColumns={breakpoints} gap={6} cursor={"pointer"}>
  
         
-        {  products?.map(item=>(
-
+        { update=="true"? updateData.map(item=>(
+   console.log(update),
         <AllProducts key={item.id} data={item}/>
-        ))}
+        )) : products?.map(item=>(
+
+          <AllProducts key={item.id} data={item}/>
+          ))}
       </Grid>
     </Flex>
   )
