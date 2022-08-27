@@ -17,22 +17,16 @@ import {getCartData} from "../Redux/CartReducer/action"
 
   
 const Cart = () => {
-
-  const cartData = useSelector((store)=>store.CartReducer.cartData)
+  
+  const {cartData} = useSelector((store)=>store.CartReducer)
   const dispatch = useDispatch()
+  const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
   console.log(cartData)
 
-  useEffect(()=>{
+  useEffect(()=>{ 
     dispatch(getCartData())
+  },[cartData.length,dispatch])
 
-  // const data = {
-  //   title:"dklasjdkajsdklajskdjas",
-  //   price: "895.00",
-  //   size: "M",
-  //   colour: "mixed",
-  //   src : "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-  // }
- 
   const navigate = useNavigate()
   const [coupon,setCoupon] = useState("")
 
@@ -57,12 +51,8 @@ const Cart = () => {
 
   const handleCheckout = ()=>{
     navigate("/checkout")
-  }
-  // const breakPoint = {
-  //   // sm:"1fr",
-  //   md:"3fr 2fr",
-  //   lg:"3fr 2fr",
-  // }
+  } 
+  
   return (
     <Box>
       <Heading>Cart</Heading>    
@@ -119,7 +109,7 @@ const Cart = () => {
                 pb={"1rem"}
                 >
                 <Text>Subtotal</Text>
-                <Text>₹Amount</Text>
+                <Text>₹{total}</Text>
               </Flex>
               <Flex
                 justifyContent={"space-between"}
@@ -128,7 +118,7 @@ const Cart = () => {
                 pt={"1.5rem"}
                 >
                 <Heading size={"md"}>Total</Heading>
-                <Heading size={"md"}>₹Amount</Heading>
+                <Heading size={"md"}>₹{total}</Heading>
               </Flex>
               <Flex>
                 <Text pb={"1rem"} pt={"1.5rem"} fontSize={"sm"}>
