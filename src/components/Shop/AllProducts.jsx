@@ -14,15 +14,19 @@ const AllProducts = ({data}) => {
   },[])
 
   return (
-    <Flex  data-aos='fade-up'    //border={"1px solid red"} 
-     direction={"column"} justifyContent="center" alignItems={"center"}
+    <Box  data-aos='fade-up'display={"flex"}  border={"2px solid black"} 
+    boxShadow='outline' p='6' rounded='md' bg='white'
+    mb="1rem"
+   
+     flexDirection={"column"} justifyContent="center" alignItems={"center"}
 onClick={()=>navigate(`/shop/${data.id}`)}
     >
-        <Image data-aos='fade-up' src={data.images} boxSize="60%"  />
+        <Image data-aos='fade-up' src={data.images} boxSize="70%"  margin={"auto"} />
         
-       <Box data-aos='fade-up' width="60%"><Text color={"black"} as={"b"}>{data.title}</Text></Box> 
+       <Box margin={"auto"} data-aos='fade-up' width="60%"><Text  color={"black"} as={"b"}>{data.title}</Text>
+       </Box> 
         <Text data-aos='fade-up' color="red" as={"b"}>{`₹ ${data.Price}`}</Text>
-    </Flex>
+    </Box>
 
   )
 }
