@@ -38,6 +38,12 @@ const text_width={
   lg: "8%"
 }
 
+const innerDivMargin={
+  sm:"auto",
+  md:"auto",
+  lg:"0"
+}
+
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate= useNavigate()
@@ -90,6 +96,33 @@ const ProductDetails = () => {
   }
 
 
+  const handleBuy=async()=>{
+    const newData={
+      // id:cartData.length+1,
+      id:Date.now(),
+      title:singleProd[0].title,
+      price:singleProd[0].Price,
+      size:selectSize,
+      quantity:qty,
+      image: singleProd[0].images
+    }
+     
+    // console.log(newData)
+    
+    if(selectSize!=""){
+      await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
+      .then(()=>dispatch(getCartData()))
+      .then(()=>navigate(`/checkout`))
+
+      setQty(1)
+      setSize('')
+    }else{
+      alert(`Select the size`)
+    }
+  }
+
+
+
   useEffect(()=>{
     
     Aos.init({duration:1000})
@@ -102,7 +135,7 @@ const ProductDetails = () => {
      direction={breakpoints}
      gap="1rem"
     >
-      <Flex width={"40%"}  border={"2px solid black"}
+      <Flex width={"40%"} margin={innerDivMargin}  border={"2px solid black"}
       borderRadius="2%"
       direction="column"
       padding={"1rem"}
@@ -112,6 +145,7 @@ const ProductDetails = () => {
         <Image  src={singleProd[0]?.images}   //border="1px solid red"
         margin="auto" width="60%"
         cursor={"pointer"}
+        height="80%"
         />
 
         <Box display={"flex"}>
@@ -137,17 +171,21 @@ const ProductDetails = () => {
 
 
       <Flex
-        // border={"1px solid black"}
+         border={"2px solid black"}
+         borderRadius="2%"
         direction="column"
         justifyContent="space-evenly"
-       
+       margin={innerDivMargin}
         
-        width="50%"
-        h={"80vh"}
+        width="40%"
+        
       >
         <Stack>
-          <Box border={"1px solid red"} width="50%" margin={"auto"}>
-        <Text as={"b"} fontSize="1.5rem">{singleProd[0]?.title}</Text>
+          <Box 
+        //  border={"1px solid red"}
+          width="50%"
+           margin={"auto"}>
+        <Text as={"b"} fontFamily="sans-serif" fontStyle={"revert-layer"} fontSize="1.5rem">{`Title: ${singleProd[0]?.title}`}</Text>
 
           </Box>
           <Box>
@@ -176,14 +214,14 @@ const ProductDetails = () => {
         </Stack>
 
         <Flex         // border="1px solid red"
-         justifyContent={"space-around"}>
        
+         justifyContent={"space-around"}>
        <Box display={"flex"}
-        gap="1rem"
+        gap="0.5rem"
         border="2px solid black"
         borderRadius={"3%"}
         ml="1rem"
-        padding="1rem"
+        padding="0.5rem"
        >
         <Button borderRadius="50%" bg={"#7d7d7d"} disabled={qty==1} onClick={()=>setQty(qty-1)}>-</Button>
         <Flex>{qty}</Flex>
@@ -193,6 +231,8 @@ const ProductDetails = () => {
         <Box>
         <Button bg="#1f1f1f" color="white" mt={"1rem"} onClick={addToCart}>Add to cart</Button>
         </Box>
+
+        <Button bg="#1f1f1f" color="white" mt="1rem" onClick={handleBuy}>Buy</Button>
           
         </Flex>
       </Flex>
