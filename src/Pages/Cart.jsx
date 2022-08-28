@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(()=>{ 
     dispatch(getCartData())
-  },[cartData.length,dispatch])
+  },[])
 
   const navigate = useNavigate()
   const [coupon,setCoupon] = useState("")
@@ -54,7 +54,7 @@ const Cart = () => {
   } 
   
   return (
-    <Box>
+    <Box height={cartData.length ? "100%" : "100vh"}>
       <Heading>Cart</Heading>    
       <Box>
         <Box display={"flex"}  gridTemplateColumns={"3fr 2fr"} gap={"3rem"} mt="2rem" position="relative">

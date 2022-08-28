@@ -1,18 +1,15 @@
 {
   "cart": [
     {
-      "id": 1,
-      "title": "FINACHI Premium Cotton T-Shirts Combo",
-      "price": "800",
-      "size": "S",
-      "quantity": 3
+      "quantity": 2,
+      "id": 1
     },
     {
       "id": 2,
       "title": "FINACHI Premium Cotton T-Shirts Combo",
       "price": "800",
       "size": "M",
-      "quantity": 2
+      "quantity": 5
     },
     {
       "id": 3,

@@ -57,8 +57,8 @@ export const updateCartData = (id,params)=>(dispatch)=>{
 export const deleteCartData = (id)=>(dispatch)=>{
     dispatch(deleteCartRequest())
     return axios.delete(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata/${id}`)
-    // .then((res)=>{ dispatch(deleteCartSuccess(res.data))
-    // })
+    .then((res)=>{ dispatch(deleteCartSuccess(res.data))
+    })
     .then(dispatch(getCartData()))
     .catch((e)=>{
         dispatch(deleteCartFailure())

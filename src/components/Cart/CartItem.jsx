@@ -1,11 +1,11 @@
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { BiX } from "react-icons/bi";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartData, getCartData, updateCartData } from "../../Redux/CartReducer/action";
 
 
-const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,getTotal}) => {
+const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id}) => {
   const dispatch = useDispatch()
   const cartData = useSelector((store)=>store.CartReducer.cartData)
   const [count, setCount] = useState(quantity);
@@ -20,9 +20,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
       // id:id,
       // price:price
     }
-    // console.log(params)
-    // const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
-    // getTotal(total)
+    
     dispatch(updateCartData(id,params))
     dispatch(getCartData())
   }
@@ -46,7 +44,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
     dispatch(getCartData())
   }
   return (
-    <Box padding={"2rem"}>
+    <Box padding={"0 2rem"}>
       <Flex padding={"2rem"} borderBottom={"1px solid grey"}>
         <Box width={"20%"} alignItems={"center"}>
           <Image src={image} alt={title} width={"100%"} height={"100%"} />
@@ -77,6 +75,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
               <button
                 style={{ fontSize: "1.5rem", padding: "0 1rem" }}
                 onClick={() => increaseCount(id)}
+                disabled={count >= 4}
               >
                 +
               </button>
