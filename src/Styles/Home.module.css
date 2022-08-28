@@ -1,12 +1,14 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Sans-serif;
+}
 .imgs{
   padding: 1rem 1.5rem;
   gap: 1.5rem;
-  /* border: 1px solid blue; */
   display: flex;
   height: 290px;
-  position: relative;
-  
+  position: relative;  
 }
 .menu{
   display: flex;
@@ -20,10 +22,9 @@
 }
 .secondslider{
   height: 100px;
-  /* border: 1px solid red; */
   width: 50%;
   padding: 1rem 1.5rem;
-  /* background-image: url("banner2-1.jpg"); */
+ 
 }
 .secondslider:hover{
   transform: scaleX(1);
@@ -34,12 +35,8 @@ transform-origin: bottom left;
   width: 100%;
   padding-left: 1px;
   padding: 1rem 1.5rem;
-  /* margin: 0rem 1rem; */
-  /* margin-left: 0; */
-  /* border: 1px solid blue; */
 }
 .childs{
-/* height: ; */
 width: 32%;
 }
 .main2{
@@ -47,14 +44,9 @@ width: 32%;
   width: 100%;
   padding-left: 1px;
   padding: 1rem 1.5rem;
-  /* margin: 0rem 1rem; */
-  /* margin-left: 0; */
-  /* border: 1px solid blue; */
-
 }
 .childs{
   overflow: hidden;
-  /* border: 1px solid blue; */
 }
 .childs img{
   transition: all 1.5s ease;
@@ -64,7 +56,6 @@ width: 32%;
 }
 .secondslider {
   overflow: hidden;
-  border: 1px solid blue;
 }
 .secondslider img{
   transition: all 1.5s ease;
@@ -79,7 +70,6 @@ width: 32%;
   margin-top: -95px;
   margin-left: 60%;
   background-color: white;
-  /* border: 2px solid blue; */
 }
 
 .textimg{
@@ -89,22 +79,82 @@ width: 32%;
   margin-top: -5%;
   margin-left: 12%;
   background-color: white;
-  /* border: 2px solid red; */
 }
 .text{
-  /* display: flex;
-  gap: 5%; */
-  /* padding: 1.5rem 1.5rem; */
   margin: 1rem 1.5rem;
   font-size:20px;
   font-weight: bolder;
   margin-bottom: 5rem;
   color: black;
- 
-  
 }
 .products{
-  border: 2px solid blue;
   height: 500px;
   width: 100%;
 }
+.paragraph{
+   padding: 15px 15px 15px 15px;
+   text-align: justify;
+   font-family: "Roboto", Sans-serif;
+   font-weight: 400;
+   line-height: 30px;
+}
+.ben{
+  height: 580px;
+  width: 40%;
+  text-align: left;
+  padding-top: 5%;
+  padding-left: 5%;
+}
+.p{
+  padding-top: 3%;
+  color: grey;
+  line-height: 50px;
+}
+/* .pimg{
+  border: 1px solid red;
+  height: 500px;
+  width: 50%;
+} */
+.btn{
+  background-color: black; /* Green */
+  border-radius: 6px;
+  color: white;
+  height: 50px;
+  width: 30%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+.im{
+  height: 580px;
+  width: 55%;
+  padding-top: 5%;
+  padding-left: 9%;
+}
+.box{
+  display: flex;
+}
+.logos{
+  display: flex;
+  height: 120px;
+  width: 100%;
+  padding-top: 12px;
+}
+.truck{
+  display: flex;
+  height: 90px;
+  padding-top: 1%;
+  padding-left: 1%;
+  width: 29%;
+}
+.text{
+  padding: 15px 15px 15px 15px;
+  text-align: justify;
+  font-family: "Roboto", Sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+

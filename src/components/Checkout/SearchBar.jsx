@@ -5,8 +5,8 @@ import { useThrottle } from "use-throttle";
 import {Input} from "@chakra-ui/react"
 
 const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
-  const [inputText, setInputText] = useState("");
-  const [active, setActive] = useState(0);
+  const [inputText , setInputText] = useState("");
+  const [active , setActive] = useState(0);
   const scrollRef = useRef();
 
   const handleInputTextChange = (e) => {
@@ -38,11 +38,8 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
         setActive((prev) => prev + 1);
         break;
 
-      //   case 13:
-      //     navigate(to = `country/${active}`);
-      //     break;
-
-      default:
+        default:
+          
         return;
     }
   };
@@ -56,7 +53,8 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
   return (
     <Wrapper onKeyUp={handleActiveSuggestions}>
       {/* <SearchBarWrapper> */}
-        <Input value={inputText} onChange={handleInputTextChange} borderRadius="none" placeholder={label} size={"lg"}/>
+        <Input value={inputText} 
+       onChange={handleInputTextChange} borderRadius="none" placeholder={label} size={"lg"}/>
       {/* </SearchBarWrapper> */}
       {suggestions.length > 0 && (
         <SearchBarSuggestion ref={scrollRef} active={active} limit={5}>
@@ -66,8 +64,7 @@ const SearchBar = ({ inputQueryHandler, suggestions,label }) => {
                 key={index}
                 onMouseOver={() => {
                   setActive(index + 1);
-                }}
-              >
+                }}>
                 {item}
               </div>
             );

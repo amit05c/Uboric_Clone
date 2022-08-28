@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import styles from "../../../Styles/Home.module.css"
+// import styles from "../../../Styles/Home.module.css"
+import styles from "../Slider/SliderImages"
+// import styles from "../S.module.css"
+import  "../Slider/TextSlider.module.css";
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {GrPrevious,GrNext} from "react-icons/gr"
@@ -20,8 +24,8 @@ export default class TextSlider extends Component {
           
         {/* <h2> Multiple items </h2> */}
         <Slider {...settings}>
-          
-          <div>
+          {/* <div className={styles.text}></div> */}
+          <div >
             <h3>Speakers(3)</h3>
           </div>
           <div>
@@ -53,7 +57,7 @@ export default class TextSlider extends Component {
           </div>
         </Slider>
         <GrPrevious style={{marginRight:"10%",marginTop:"5px"}}/>
-        <GrNext style={{marginLeft:"100%" ,marginBottom:"5rem"}}/>
+        <GrNext style={{marginLeft:"99%" ,marginBottom:"5rem"}}/>
       </div>
     );
   }
