@@ -13,14 +13,15 @@ import {
   Stack,
   Text,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
-import React, { useReducer} from "react";
+import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
-import { updateContactMessage} from "../Redux/ContactReducer/action";
+import { updateContactMessage } from "../Redux/ContactReducer/action";
 import phone from "../utils/phone.png";
 import message from "../utils/message.png";
 import { useNavigate } from "react-router-dom";
-import {ADD_MESSAGE_SUCCESS } from "../Redux/ContactReducer/actionTypes";
+import { ADD_MESSAGE_SUCCESS } from "../Redux/ContactReducer/actionTypes";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -58,17 +59,22 @@ const initialState = {
   message: "",
 };
 
-
 const ContactUs = () => {
   // const info = useSelector((state) => state.ContactReducer);
+  const toast = useToast()
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [state, setMessage] = useReducer(reducer, initialState);
 
-
   const messageHandler = () => {
     dispatch(updateContactMessage(state)).then((r) => {
       if (r === ADD_MESSAGE_SUCCESS) {
+        toast({
+          description: "Message sent successfully.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
         navigate("/", { replace: true });
       }
     });
@@ -81,8 +87,7 @@ const ContactUs = () => {
   // console.log(info);
 
   return (
-
-    <Box h="105vh" paddingBottom="300px"  marginBottom="100px" >
+    <Box maxH="100vh" paddingBottom="300px" marginBottom="100px">
 
       <Divider orientation="horizontal" />
       <Box maxW="1150px" maxH="100%" position="center" margin="auto">
@@ -114,7 +119,7 @@ const ContactUs = () => {
             paddingBottom="80px"
           >
             <Flex>
-              <Box flex="1.2" maxH="100%" padding="10px" >
+              <Box flex="1.2" maxH="100%" padding="10px">
                 <Flex padding="7px 0px 26px">
                   <Box>
                     <Image src={`${phone}`} alt="call us" maxW="30px" />
@@ -175,80 +180,90 @@ const ContactUs = () => {
                   <Text fontSize="md">uboricllp@gmail.com</Text>
                 </Box>
               </Box>
-              <Box flex="2.8" >
-             
-                  <Stack spacing={8}>
-                    <Box  background="none"
-                      color="none">
-                      <FormControl>
-                      <Input
-                      focusBorderColor="black"
-                      errorBorderColor="red.300"
-                      type="text"
-                      value={state.name}
-                      onChange={(e) =>
-                        setMessage({ type: "name", payload: e.target.value })
-                      }
-                      placeholder="Your Name *"
-                      size="lg"
-                      _placeholder={{ color: "black.300", fontSize: "medium" }}
-                      borderRadius="0px"
-                    />
-                      </FormControl>
-                    </Box>
-                   <Box>
+              <Box flex="2.8">
+                <Stack spacing={8}>
+                  <Box background="none" color="none">
                     <FormControl>
-                    <Input
-                      focusBorderColor="black"
-                      errorBorderColor="red.300"
-                      type="email"
-                value={state.email}
-                onChange={(e) =>
-                  setMessage({ type: "email", payload: e.target.value })
-                }
-                      placeholder="Your Email *"
-                      size="lg"
-                      _placeholder={{ color: "black.400", fontSize: "medium" }}
-                      borderRadius="0px"
-                    />
-                    </FormControl>
-                   </Box>
-                    <Box>
-                      <FormControl>
                       <Input
-                      focusBorderColor="black"
-                      errorBorderColor="red.300"
-                      type="number"
-                      value={state.phone}
-                      onChange={(e) =>
-                        setMessage({ type: "phone", payload: e.target.value })
-                      }
-                      placeholder="Your Phone *"
-                      size="lg"
-                      _placeholder={{ color: "black.400", fontSize: "medium" }}
-                      borderRadius="0px"
-                    />
-                      </FormControl>
-                    </Box>
-                    <Box>
-                      <FormControl>
+                        focusBorderColor="black"
+                        errorBorderColor="red.300"
+                        type="text"
+                        value={state.name}
+                        onChange={(e) =>
+                          setMessage({ type: "name", payload: e.target.value })
+                        }
+                        placeholder="Your Name *"
+                        size="lg"
+                        _placeholder={{
+                          color: "black.300",
+                          fontSize: "medium",
+                        }}
+                        borderRadius="0px"
+                      />
+                    </FormControl>
+                  </Box>
+                  <Box>
+                    <FormControl>
+                      <Input
+                        focusBorderColor="black"
+                        errorBorderColor="red.300"
+                        type="email"
+                        value={state.email}
+                        onChange={(e) =>
+                          setMessage({ type: "email", payload: e.target.value })
+                        }
+                        placeholder="Your Email *"
+                        size="lg"
+                        _placeholder={{
+                          color: "black.400",
+                          fontSize: "medium",
+                        }}
+                        borderRadius="0px"
+                      />
+                    </FormControl>
+                  </Box>
+                  <Box>
+                    <FormControl>
+                      <Input
+                        focusBorderColor="black"
+                        errorBorderColor="red.300"
+                        type="number"
+                        value={state.phone}
+                        onChange={(e) =>
+                          setMessage({ type: "phone", payload: e.target.value })
+                        }
+                        placeholder="Your Phone *"
+                        size="lg"
+                        _placeholder={{
+                          color: "black.400",
+                          fontSize: "medium",
+                        }}
+                        borderRadius="0px"
+                      />
+                    </FormControl>
+                  </Box>
+                  <Box>
+                    <FormControl>
                       <Textarea
-                      placeholder="Message *"
-                      height="150px"
-                      focusBorderColor="black"
-                      errorBorderColor="red.300"
-                      borderRadius="0px"
-                      type="text"
-                value={state.message}
-                onChange={(e) =>
-                  setMessage({ type: "message", payload: e.target.value })
-                }
-                    />
-                      </FormControl>
-                    </Box>
-                  </Stack>
+                        placeholder="Message *"
+                        height="150px"
+                        focusBorderColor="black"
+                        errorBorderColor="red.300"
+                        borderRadius="0px"
+                        type="text"
+                        value={state.message}
+                        onChange={(e) =>
+                          setMessage({
+                            type: "message",
+                            payload: e.target.value,
+                          })
+                        }
+                      />
+                    </FormControl>
+                  </Box>
+                </Stack>
                 <Button
-                onClick={messageHandler}
+                  onClick={messageHandler}
                   borderRadius="0px"
                   color="white"
                   background="#302C26"
