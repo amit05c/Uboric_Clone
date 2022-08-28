@@ -5,12 +5,14 @@ import {AiOutlineArrowRight} from "react-icons/ai"
 import TextSlider from '../components/slider/TextSlider'
 import SecondSlider from '../components/slider/SecondSlider'
 import ThirdSlider from '../components/slider/ThirdSlider'
+import Instructions from "../components/AboutUs/Instructions"
 
  
 const Home = () => {
   return (
     <div>
-      <Slider/>
+     <div style={{paddingTop:"2%"}}> <Slider/></div>
+      {/* <button className={styles.shopnow}>Shop now</button> */}
       {/* images */}
     <div className={styles.imgs}>
     <h1 style={{position:"absolute",paddingLeft:"10%", fontWeight:"bold", fontSize:"170%"}}>Kitchen</h1>
@@ -96,11 +98,14 @@ const Home = () => {
  <div className={styles.products}>
   <SecondSlider/>
   </div>  
-  <h1 style={{fontWeight:"bold",fontSize:"30px"}}>New Arrivals</h1> 
-  <div className={styles.products}>
+  <h1 style={{fontWeight:"bold",fontSize:"30px",marginTop:"30px"}}>New Arrivals</h1> 
+  <div className={styles.product}>
+    
     <ThirdSlider/>
-  </div>   
-  <h1 style={{fontWeight:"bold",fontSize:"30px"}}>
+    
+  </div>  
+ 
+  <h1 style={{fontWeight:"bold",paddingTop:"40px",fontSize:"30px"}}>
 The Ultimate Domestic Online Shopping Experience Platform in India</h1>
   <div className={styles.paragraph}>
     <p>Online shopping with Uboric is quick, convenient and trouble-free. 
@@ -134,43 +139,15 @@ The Ultimate Domestic Online Shopping Experience Platform in India</h1>
 <p>Check Out Closely</p>
 <p> Payment Options</p>
 <p>Order History</p>
-  <button className={styles.btn}>Shop now</button>
+<a href='shop'><button className={styles.btn}>Shop now</button></a>
+  
 </div>
   </div>
 <div className={styles.im}>
    <img src='maual.jpg' alt="kitchen"/>
 </div>
   </div>
-  <div className={styles.logos}>
-    <div className={styles.truck}>
-    <img  src='truck3.svg' alt='truck3'/>
-    <div className={styles.tex}>
-    <p style={{color:"black",fontsize:"10px"}}>FREE SHIPPING</p>
-    <p style={{color:"gray"}}>From all orders over Rs 500</p>
-    </div>
-    </div>
-    <div className={styles.truck}>
-    <img   src='money.svg' alt='truck3'/>
-    <div className={styles.tex}>
-    <p style={{color:"black",fontsize:"10px"}}>FREE RETURNS</p>
-    <p style={{color:"gray"}}>Return money within 30 days</p>
-    </div>
-    </div>
-    <div className={styles.truck}>
-    <img  src='box.svg' alt='truck3'/>
-    <div className={styles.tex}>
-    <p style={{color:"black",fontsize:"10px"}}>SECURE SHOPPING</p>
-    <p style={{color:"gray"}}>You're in safe hands</p>
-    </div>
-    </div>
-    <div className={styles.truck}>
-    <img  src='like.svg' alt='truck3'/>
-    <div className={styles.tex}>
-    <p style={{color:"black",fontsize:"10px"}}>OVER 10,000 STYLES</p>
-    <p style={{color:"gray"}}>We have everything you need</p>
-    </div>
-    </div>
-  </div>
+ <Instructions/>
 </div>
   )
 }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useThrottle } from "use-throttle";
 import { Input } from "@chakra-ui/react";
 
-const SearchBar = ({ inputQueryHandler, suggestions, getSearchData }) => {
+const SearchBar = ({ inputQueryHandler, suggestions,label, getSearchData }) => {
   const [inputText, setInputText] = useState("");
   const [active, setActive] = useState(0);
   const scrollRef = useRef();
@@ -60,6 +60,7 @@ const SearchBar = ({ inputQueryHandler, suggestions, getSearchData }) => {
       {/* <SearchBarWrapper> */}
       <Input
         value={inputText}
+        defaultValue={label}
         // value={searchData}
         onChange={handleInputTextChange}
         borderRadius="none"

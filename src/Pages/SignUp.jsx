@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+// import data from "../../db.json"
 import { useDispatch } from "react-redux";
 import {
   Box,
@@ -88,10 +89,12 @@ const SignUp = () => {
     });
   };
 
+  //  console.log(data)
+
 
   return (
 
-    <Box height="96vh" bg="#ffffff">
+    <Box height="110vh" bg="#ffffff">
       <Divider orientation="horizontal" />
       <Box
         width="1150px"
@@ -106,13 +109,13 @@ const SignUp = () => {
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/sign-up">Sign-In</BreadcrumbLink>
+              <BreadcrumbLink href="/sign-up">Sign-Up</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
         </Box>
         <Box width="100%" padding="20px 0px 20px">
           <Heading as="h3" size="lg" fontWeight="medium" textAlign="center">
-            Sign In
+            Sign Up
           </Heading>
         </Box>
         <Divider orientation="horizontal" />

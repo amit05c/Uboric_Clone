@@ -38,6 +38,105 @@
       "email": "john@example.com",
       "phone": "123-456-1234",
       "password": "Password"
+    },
+    {
+      "name": "Amit",
+      "email": "amit@gmail.com",
+      "password": "amit123",
+      "phone": "1234654875",
+      "id": 2
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1233",
+      "id": 3
+    },
+    {
+      "name": "jaj",
+      "email": "choton@gmail.com",
+      "password": "chot123",
+      "phone": "789456123",
+      "id": 4
+    },
+    {
+      "email": "choton@gmail.com",
+      "password": "chot123",
+      "id": 5
+    },
+    {
+      "name": "amit",
+      "email": "amit@gmail.com",
+      "password": "12345",
+      "phone": "1234587",
+      "id": 6
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "12345",
+      "id": 7
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "12345",
+      "id": 8
+    },
+    {
+      "name": "a",
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "phone": "0",
+      "id": 9
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 10
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 11
+    },
+    {
+      "name": "Amit",
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "phone": "34",
+      "id": 12
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 13
+    },
+    {
+      "name": "Amit",
+      "email": "amit@gmail.com",
+      "password": "123",
+      "phone": "12",
+      "id": 14
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 15
+    },
+    {
+      "name": "Amit",
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "phone": "11",
+      "id": 16
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 17
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "1234",
+      "id": 18
     }
   ]
 }

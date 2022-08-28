@@ -12,7 +12,7 @@ const Data = {
   shop: [
     {
       name: "My account",
-      path:"/login"
+      path:"/sign-in"
     },    
   ],
   company: [

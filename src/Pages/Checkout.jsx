@@ -11,11 +11,13 @@ import {
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Toast,
   Textarea,
   Image,
   RadioGroup,
   Stack,
   Radio,
+  useToast,
 } from "@chakra-ui/react";
 import styles from "../Styles/checkout.module.css";
 import SearchBar from "../components/Checkout/SearchBar";
@@ -92,12 +94,45 @@ const Checkout = () => {
     dispatch(getCartData());
   }, []);
 
-  const getSearchData = (country)=>{
-    console.log("country",country)
-  } 
-  const getSearchData1 = (state)=>{
-    console.log("state",state)
-  } 
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const getSearchData = (countryData) => {
+    setCountry(countryData);
+  };
+  const getSearchData1 = (stateData) => {
+    setState(stateData);
+  };
+
+  // ----------------------------- Billing Input tags -----------------------------
+
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [company, setCompany] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [pinCode, setPinCode] = useState();
+  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState("");
+  const [textArea, setTextArea] = useState("");
+  const [formData, setFormData] = useState([]);
+  console.log(formData);
+  const toast = useToast()
+  const handleSubmit = () => {
+    const billingData = {
+      fname: fname,
+      lname: lname,
+      company: company,
+      address: address,
+      city: city,
+      pinCode: pinCode,
+      phone: phone,
+      email: email,
+      textArea: textArea,
+      country: "India",
+      state: "Maharashtra",
+    };
+    setFormData(billingData);
+  };
   return (
     <Box>
       <Box p={"3rem"}>
@@ -163,28 +198,48 @@ const Checkout = () => {
                 <Flex gap={"2rem"} mb="1.3rem">
                   <FormControl isRequired>
                     <FormLabel>First name</FormLabel>
-                    <Input borderRadius={"none"} size="lg" />
+                    <Input
+                      borderRadius={"none"}
+                      size="lg"
+                      value={fname}
+                      onChange={(e) => setFname(e.target.value)}
+                    />
                   </FormControl>
                   <FormControl isRequired>
                     <FormLabel>Last name</FormLabel>
-                    <Input borderRadius={"none"} size="lg" />
+                    <Input
+                      borderRadius={"none"}
+                      size="lg"
+                      value={lname}
+                      onChange={(e) => setLname(e.target.value)}
+                    />
                   </FormControl>
                 </Flex>
               </Box>
               <Box mb="1.3rem">
                 <FormControl>
                   <FormLabel>Company name (optional)</FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
+                  <Input
+                    borderRadius={"none"}
+                    size="lg"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                  />
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
                 <FormControl isRequired>
                   <FormLabel>Country / Region</FormLabel>
-                  <SearchBar
+                  {/* <SearchBar
                     inputQueryHandler={queryHandler}
                     suggestions={suggestions}
                     getSearchData={getSearchData}
-                  />
+                    label="India"
+                  /> */}
+                  <Input 
+                  size="lg"
+                  borderRadius={"none"}
+                  defaultValue={"India"}/>
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
@@ -195,6 +250,8 @@ const Checkout = () => {
                     placeholder="House number and street name"
                     borderRadius={"none"}
                     mb="1rem"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                   />
                   <Input
                     size="lg"
@@ -206,41 +263,61 @@ const Checkout = () => {
               <Box mb="1.3rem">
                 <FormControl isRequired>
                   <FormLabel>Town / City </FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
-                </FormControl>
-              </Box>
-              <Box mb="1.3rem">
-                <FormControl isRequired>
-                  <FormLabel>State</FormLabel>
-                  <SearchBar
-                    inputQueryHandler={queryHandler1}
-                    suggestions={suggestions1}
-                    getSearchData={getSearchData1}
+                  <Input
+                    borderRadius={"none"}
+                    size="lg"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
                   />
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
                 <FormControl isRequired>
+                  <FormLabel>State</FormLabel>
+                  {/* <SearchBar
+                    inputQueryHandler={queryHandler1}
+                    suggestions={suggestions1}
+                    getSearchData={getSearchData1}
+                    label="Maharashtra"
+                  /> */}
+                  <Input borderRadius={"none"}
+                    size="lg" defaultValue={"Maharashtra"}/>
+                </FormControl>
+              </Box>
+              <Box mb="1.3rem">
+                <FormControl isRequired>
                   <FormLabel>PIN Code</FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
+                  <Input
+                    borderRadius={"none"}
+                    size="lg"
+                    value={pinCode}
+                    onChange={(e) => setPinCode(e.target.value)}
+                  />
+                  {/* <Input borderRadius={"none"} size="lg" /> */}
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
                 <FormControl isRequired>
                   <FormLabel>Phone</FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
-                </FormControl>
-              </Box>
-              <Box mb="1.3rem">
-                <FormControl isRequired>
-                  <FormLabel>PIN Code</FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
+                  <Input
+                    borderRadius={"none"}
+                    size="lg"
+                    type={"number"}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
                 <FormControl isRequired>
                   <FormLabel>Email address *</FormLabel>
-                  <Input borderRadius={"none"} size="lg" />
+                  <Input
+                    borderRadius={"none"}
+                    size="lg"
+                    type={"email"}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </FormControl>
               </Box>
             </Box>
@@ -254,6 +331,8 @@ const Checkout = () => {
                   placeholder="Notes about your order, e.g. special notes for delivery."
                   borderRadius={"none"}
                   height="10rem"
+                  value={textArea}
+                  onChange={(e) => setTextArea(e.target.value)}
                 />
               </FormControl>
             </Box>
@@ -425,13 +504,25 @@ const Checkout = () => {
                 </RadioGroup>
               </Box>
               <Box m={"1.5rem 0"}>
+                
                 <Button
-                  bgColor="black"
-                  color={"white"}
-                  size="lg"
-                  width={"100%"}
-                  borderRadius={"none"}
-                  _hover="none"
+                bgColor="black"
+                color={"white"}
+                size="lg"
+                width={"100%"}
+                borderRadius={"none"}
+                _hover="none"
+                  onClick={() =>{
+                    toast({
+                      size:"500",
+                      position: 'top-center',
+                      title: "Order Placed.",
+                      description: "Thank you for shopping with us.",
+                      status: "success",
+                      duration: 9000,
+                      isClosable: true,
+                    });handleSubmit()}
+                  }
                 >
                   Place Order
                 </Button>

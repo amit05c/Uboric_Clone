@@ -2,13 +2,18 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", Sans-serif;
+  /* overflow-x: hidden; */
+  /* display: none; */
+  /* overflow-y: scroll;  */
+  /* -ms-overflow-style: none;  IE and Edge */
+  scrollbar-width: none;  
 }
 .imgs{
   padding: 1rem 1.5rem;
   gap: 1.5rem;
   display: flex;
   height: 290px;
-  position: relative; 
+  position: relative;  
 }
 .menu{
   display: flex;
@@ -90,6 +95,15 @@ width: 32%;
 .products{
   height: 500px;
   width: 100%;
+  /* border: 2px solid black; */
+}
+.product{
+  margin-top: 30px;
+  /* padding-top: 20px; */
+  height: 400px;
+  width: 100%;
+  /* padding-bottom: 20px; */
+  /* border: 2px solid red; */
 }
 .paragraph{
    padding: 15px 15px 15px 15px;
@@ -97,6 +111,13 @@ width: 32%;
    font-family: "Roboto", Sans-serif;
    font-weight: 400;
    line-height: 30px;
+   margin-top: 20px;
+}
+
+.shopnow:hover{
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
 }
 .ben{
   height: 580px;

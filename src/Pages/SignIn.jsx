@@ -51,7 +51,7 @@ const SignIn = () => {
     };
 
   return (
-    <Box height="78vh" bg="#ffffff" padding="0px">
+    <Box height="85vh" bg="#ffffff" padding="0px">
       <Divider orientation="horizontal" />
       <Box
         width="1150px"
@@ -98,7 +98,7 @@ const SignIn = () => {
                 <Input
                   focusBorderColor="black"
                   errorBorderColor="red.300"
-                  type="number"
+                  type="password"
                   size="lg"
                   borderRadius="0px"
                   value={password}
@@ -128,7 +128,7 @@ const SignIn = () => {
             onClick={loginHandler}
                   isLoading={isLoading}
           >
-            Sign Up
+            Sign In
           </Button>
         </Box>
       </Box>

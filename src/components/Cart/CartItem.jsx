@@ -46,7 +46,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
     dispatch(getCartData())
   }
   return (
-    <Box padding={"2rem"}>
+    <Box padding={"0 2rem"}>
       <Flex padding={"2rem"} borderBottom={"1px solid grey"}>
         <Box width={"20%"} alignItems={"center"}>
           <Image src={image} alt={title} width={"100%"} height={"100%"} />

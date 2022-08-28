@@ -134,12 +134,14 @@ const ProductDetails = () => {
      margin={"2rem 0 5rem 0"}
      direction={breakpoints}
      gap="1rem"
+     height={"110vh"}
     >
       <Flex width={"40%"} margin={innerDivMargin}  border={"2px solid black"}
       borderRadius="2%"
       direction="column"
       padding={"1rem"}
       gap="1rem"
+      
        > 
        <Box data-aos='fade-up' bg={"black"} color="white" width={text_width} position={"relative"} top="1rem" left="1rem"><Text>Sale</Text></Box>         
         <Image  src={singleProd[0]?.images}   //border="1px solid red"
@@ -229,10 +231,10 @@ const ProductDetails = () => {
        </Box>
 
         <Box>
-        <Button bg="#1f1f1f" color="white" mt={"1rem"} onClick={addToCart}>Add to cart</Button>
+        <Button bg="#1f1f1f" _hover={"none"} color="white" mt={"1rem"} onClick={addToCart}>Add to cart</Button>
         </Box>
 
-        <Button bg="#1f1f1f" color="white" mt="1rem" onClick={handleBuy}>Buy</Button>
+        <Button bg="#1f1f1f" _hover={"none"} color="white" mt="1rem" onClick={handleBuy}>Buy</Button>
           
         </Flex>
       </Flex>
