@@ -21,10 +21,10 @@ const Navbar = () => {
     <a href='/contact-us' className='hover-underline-animation' >Contact Us</a>
  </div>
 <div className='icons'>
-<MdOutlineManageAccounts style={{fontSize:"1.5rem"}}/>
-<AiOutlineSearch style={{fontSize:"1.5rem"}}/>
-<AiOutlineHeart style={{fontSize:"1.5rem"}}/>
-<BsHandbag style={{fontSize:"1.5rem"}}/>
+  <a href='sign-in'><MdOutlineManageAccounts style={{fontSize:"1.5rem"}}/></a>
+<a href='shop'><AiOutlineSearch style={{fontSize:"1.5rem"}}/></a>
+<a href='whishlist'><AiOutlineHeart style={{fontSize:"1.5rem"}}/></a>
+<a href='checkout'><BsHandbag style={{fontSize:"1.5rem"}}/></a>
 </div>
   </div>
    </>

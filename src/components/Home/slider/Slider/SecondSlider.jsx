@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-// import styles from "../slider/SecondSlider.module.css"
+import {BsHeart,BsHandbag} from "react-icons/bs"
 import styles from "../Slider/SecondSlider.module.css"
 import {AiOutlineEye} from "react-icons/ai"
 
@@ -53,7 +53,15 @@ export default class secondSlider extends Component {
     <div className={styles.image}>
     {/* <p style={{marginTop:"-0px",backgroundColor:"black",width:"70px"}}>SALE</p> */}
     <img src="mo.jpg" style={{height:"370px" ,width:"370px"}} alt="Avatar"/>
-    <AiOutlineEye style={{color:"white"}}/>
+    <div className={styles.logo}>
+              <BsHeart/>
+              </div>
+              <div className={styles.logos}>
+              <a href="checkout"><BsHandbag/></a>
+              </div>
+    <AiOutlineEye 
+    style={{marginLeft:"1%",height:"50%",width:"20%",marginTop:"1%",color:"white"}}/>
+
     <p className={styles.texts}>Quick view</p>
     </div>
   </div>
