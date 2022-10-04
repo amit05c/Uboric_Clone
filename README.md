@@ -76,9 +76,9 @@ We tried our best to clone the website from scratch based on the knowledge gaine
 
 👤 **Hisamudin Shaikh**
 
-- Github: [@Ayushi0516](https://github.com/Ayushi0516)
-- Linkedin: [ayushi-gupta-b98676236](https://www.linkedin.com/in/ayushi-gupta-b98676236/)
-- Email: (ayushigupta0516@gmail.com)
+- Github: [@Hisam-94](https://github.com/Hisam-94)
+- Linkedin: [hisamuddin-shaikh](https://www.linkedin.com/in/hisamuddin-shaikh/)
+- Email: (Hisamuddin@gmail.com)
 
 ## 🤝 Contributing
 
