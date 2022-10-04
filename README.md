@@ -17,8 +17,8 @@ Hello everyone, this is a Readme for our construct week project that has been co
 
 1. Amit Ghosh
 2. Hisamudin Shaikh
-3.Hrutugandha Nishigandh
-4.Punam Jagtap
+3. Hrutugandha Nishigandh
+4. Punam Jagtap
 
 ## The Journey:
 
@@ -55,32 +55,26 @@ We tried our best to clone the website from scratch based on the knowledge gaine
 - Email Login
 - Similar properties suggestion feature
 
-👤 **Dev Ashish Saurabh**
-
-- Github: [@Devashishsaurabh](https://github.com/Devashishsaurabh)
-- Linkedin: [dev-ashish-saurabh](https://www.linkedin.com/in/dev-ashish-saurabh/)
-- Email: (onlyvishwasindia@gmail.com)
-
 👤 **Amit Ghosh**
 
 - Github: [@amit05c](https://github.com/amit05c)
 - Linkedin: [amit-ghosh-0b6807228](https://www.linkedin.com/in/amit-ghosh-0b6807228/)
 - Email: (amitghosh0595c@gmail.com)
 
-👤 **Akhil Khan**
+👤 **Hrutugandha Nishigandh**
 
-- Github: [@Akhil2014](https://github.com/Akhil2014)
-- Linkedin: [akhil-khan-709122207](http://linkedin.com/in/akhil-khan-709122207)
-- Email: (mdakhilkhan2014@gmail.com)
+- Github: [@hrutugandha](https://github.com/hrutugandha)
+- Linkedin: [hrutugandha-n-32735219b](https://www.linkedin.com/in/hrutugandha-n-32735219b/)
+- Email: (hrutunishi19@gmail.com)
 
 
-👱‍♀️ **Harshada Jagtap**
+👤 **Punam Jagtap**
 
 - Github: [@harshadajagtap25](https://github.com/harshadajagtap25)
 - Linkedin: [harshada-jagtap-88334a192/](https://www.linkedin.com/in/harshada-jagtap-88334a192/)
 - Email: (harshadajagtap199725@gmail.com)
 
-👱‍♀️ **Ayushi Gupta**
+👤 **Hisamudin Shaikh**
 
 - Github: [@Ayushi0516](https://github.com/Ayushi0516)
 - Linkedin: [ayushi-gupta-b98676236](https://www.linkedin.com/in/ayushi-gupta-b98676236/)
