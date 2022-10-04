@@ -8,12 +8,16 @@ import {
   import thunk from "redux-thunk";
   import { reducer as ProductReducer} from "./ProductsReducer/reducer"
   import { reducer as ContactReducer } from "./ContactReducer/reducer"
+  import {reducer as CartReducer} from "./CartReducer/reducer"
+  import {reducer as AuthReducer} from "./AuthReducer/reducer"
   
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   
   const rootReducer = combineReducers({ 
     ProductReducer,
-    ContactReducer
+    ContactReducer,
+    CartReducer,
+    AuthReducer
    });
   
   const store = legacy_createStore(

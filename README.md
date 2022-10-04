@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Uboric MERN-Stack-Clone
+Uboric is an online e-commerce website for clothes. 
+## Getting Started
+1. Live Link :- exclusive-oatmeal-9601.vercel.app/
+2. Fork this repository https://github.com/amit05c/exclusive-oatmeal-9601
+3. Clone the Forked repository.
+   - **_Note_**: This Clone repository should be on your github account.
+4. navigate to the folder `fixed-thread-889`
+5. npm install
+6. npm start
+7. To Visit App:
+**http://localhost:3000/**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hello everyone, this is a Readme for our construct week project that has been completed successfully with in a week. It had 5 team members including me. Below we have described the responsibilities shared by each of us with our respective details and social handles.
 
-## Available Scripts
+## My teammates are:
 
-In the project directory, you can run:
+1. Amit Ghosh
+2. Hisamudin Shaikh
+3. Hrutugandha Nishigandh
+4. Punam Jagtap
 
-### `npm start`
+## The Journey:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Journey so far has been challenging and fun at the same time for my team this was our sixth project and the deadline was just a week, it all felt like we were working on a real product, and also we tried to enact the overall activity as the real working climate where we used git commands to collaborate throughout the project. The planning, discussions, and other team-relevant activities were done via zoom meetings. Each of us handled different tasks to ensure the successful submission of the project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Details:
 
-### `npm test`
+We are given a task to make a functional clone website of Clockify is the most popular free time tracker and timesheet app for teams of all sizes. Unlike all the other time trackers, Clockify lets you have an unlimited number of users for free. Clockify is an online app that works in a browser, but you can also install it on your computer or phone.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clockify is used by everyone from freelancers, small businesses, and agencies, to government institutions, NGOs, universities, and Fortune 500 companies.
+We tried our best to clone the website from scratch based on the knowledge gained from unit-6 of Journey (unit 1–6) at Masai School.  We have imparted the majority of functions that the Clockify. 
 
-### `npm run build`
+<img src="https://outstripinfotech.com/wpword/razi/wp-content/uploads/2022/08/200x80black.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<table  align=center>
+  <tr>
+    <td align=center> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" height=100></td>
+    <td align=center> <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png"  height=100   width=150 ></td>
+    <td align=center> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--60EL_RNJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gkgxaoegocynro97ipsz.png"  height=100   width=150 ></td>
+    <td align=center> <img src="https://user-images.githubusercontent.com/8939680/57233883-20344080-6fe5-11e9-8169-1eeb4c782683.png"  height=100  width=150 ></td>
+    <td align=center> <img src="https://erons-blog.netlify.app/media/building-react-components-with-chakra-ui.png"  width=120  ></td>
+  </tr>
+</table>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Functionalities`
 
-### `npm run eject`
+- User can login and signup
+- User can filter and sort the products according to price, brand , and category
+- User can add to cart the product and update the product quantity then updated price will reflect.
+- Payment and checkout
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+👤 **Amit Ghosh**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Github: [@amit05c](https://github.com/amit05c)
+- Linkedin: [amit-ghosh-0b6807228](https://www.linkedin.com/in/amit-ghosh-0b6807228/)
+- Email: (amitghosh0595c@gmail.com)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👤 **Hrutugandha Nishigandh**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Github: [@hrutugandha](https://github.com/hrutugandha)
+- Linkedin: [hrutugandha-n-32735219b](https://www.linkedin.com/in/hrutugandha-n-32735219b/)
+- Email: (hrutunishi19@gmail.com)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Punam Jagtap**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Github: [@harshadajagtap25](https://github.com/harshadajagtap25)
+- Linkedin: [harshada-jagtap-88334a192/](https://www.linkedin.com/in/harshada-jagtap-88334a192/)
+- Email: (harshadajagtap199725@gmail.com)
 
-### Code Splitting
+👤 **Hisamudin Shaikh**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Github: [@Hisam-94](https://github.com/Hisam-94)
+- Linkedin: [hisamuddin-shaikh](https://www.linkedin.com/in/hisamuddin-shaikh/)
+- Email: (Hisamuddin@gmail.com)
 
-### Analyzing the Bundle Size
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contributions, issues and feature requests are welcome!
 
-### Making a Progressive Web App
+Feel free to check the [issues page](https://github.com/Devashishsaurabh/fixed-thread-889/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Show your support
 
-### Advanced Configuration
+Give a ⭐️ if you like this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
+- We take all the responsiblity for every single line of code. The desgin inspire from Clockify.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

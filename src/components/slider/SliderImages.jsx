@@ -1,8 +1,8 @@
-import First from "../slider/assets/First.jpg";
-import vegies from "../slider/assets/vegies.png";
-import Second from "../slider/assets/second.png";
-import Third from "../slider/assets/Third.jpg";
-import { Button } from "@chakra-ui/react";
+import First from "./assets/First.jpg";
+import vegies from "./assets/vegies.png";
+import one from "./assets/one.png";
+import Third from "./assets/Third.jpg"
+
 
 export default 
  [
@@ -15,13 +15,19 @@ export default
   {
     title: "First Slide",
     description: "This is the first slider Image of our carousel",
-    urls: vegies,
+    urls: one,
+    
   },
   {
-    title: "Second Slide",
-    description: "This is the second slider Image of our carousel",
-    urls: Second,
+    title: "First Slide",
+    description: "This is the first slider Image of our carousel",
+    urls: vegies,
   },
+  // {
+  //   title: "Second Slide",
+  //   description: "This is the second slider Image of our carousel",
+  //   urls: Second,
+  // },
   {
     title: "Third Slide",
     description: "This is the Third slider Image of our carousel",

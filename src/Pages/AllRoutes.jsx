@@ -10,6 +10,9 @@ import Checkout from './Checkout'
 import ContactUs from './ContactUs'
 import WishList from './WishList'
 import SignUp from './SignUp'
+import ReqAuth from "../components/Authentication/ReqAuth"
+
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -18,11 +21,12 @@ const AllRoutes = () => {
         <Route path='/shop/:id' element={<ProductDetails/>} />
         <Route path='/about-us' element={<AboutUs/>} />
         <Route path='/contact-us' element={<ContactUs/>} />
-        <Route path='/cart' element={<Cart/>} />
+        <Route path='/cart' element={<Cart/> } />
         <Route path='/wishlist' element={<WishList/>} />
         <Route path='/checkout' element={<Checkout/>} />
-        <Route path='/SignIn' element={<SignIn/>} />
-        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/sign-in' element={<SignIn/>} />
+        <Route path='/sign-up' element={<SignUp/>} />
+        <Route path='*' element={<div style={{padding:"200px"}}>This page does not exist :((</div>} />
     </Routes>
   )
 }

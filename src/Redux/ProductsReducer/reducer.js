@@ -3,7 +3,8 @@ import { GET_FAILURE, GET_REQUEST, GET_SUCCESS } from "./actionType"
 const initVal= {
     isLoading: false,
     isError: false,
-    products: []
+    products: [],
+
 }
 
 export const reducer =(state=initVal,action)=>{
