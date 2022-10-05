@@ -13,12 +13,34 @@ Uboric is an online e-commerce website for clothes.
 
 Hello everyone, this is a Readme for our construct week project that has been completed successfully with in a week. It had 5 team members including me. Below we have described the responsibilities shared by each of us with our respective details and social handles.
 
-## My teammates are:
+## Contributors:
 
-1. Amit Ghosh
-2. Hisamudin Shaikh
-3. Hrutugandha Nishigandh
-4. Punam Jagtap
+👤 **Amit Ghosh**
+
+   - [@Github](https://github.com/amit05c)
+   - [@Linkedin](https://www.linkedin.com/in/amit-ghosh-0b6807228/)
+   - [Email](amitghosh0595c@gmail.com)
+   
+👤 **Hisamudin Shaikh**
+
+   - [@Github](https://github.com/Hisam-94)
+   - [@Linkedin](https://www.linkedin.com/in/hisamuddin-shaikh/)
+   - [Email](Hisamuddin@gmail.com)
+
+👤 **Hrutugandha Nishigandh**
+
+   - [@Github](https://github.com/hrutugandha)
+   - [@Linkedin](https://www.linkedin.com/in/hrutugandha-n-32735219b/)
+   - [Email](hrutunishi19@gmail.com)
+
+
+👤 **Punam Jagtap**
+
+   - [@Github](https://github.com/harshadajagtap25)
+   - [@Linkedin](https://www.linkedin.com/in/punam-jagtap-090839232/)
+   - [Email](harshadajagtap199725@gmail.com)
+
+
 
 ## The Journey:
 
@@ -47,35 +69,39 @@ We tried our best to clone the website from scratch based on the knowledge gaine
 
 ### `Functionalities`
 
-- User can login and signup
-- User can filter and sort the products according to price, brand , and category
-- User can add to cart the product and update the product quantity then updated price will reflect.
-- Payment and checkout
+   - User can login and signup
+   - User can filter and sort the products according to price, brand , and category
+   - User can add to cart the product and update the product quantity then updated price will reflect.
+   - Payment and checkout
 
-👤 **Amit Ghosh**
+- ## Home page
 
-- Github: [@amit05c](https://github.com/amit05c)
-- Linkedin: [amit-ghosh-0b6807228](https://www.linkedin.com/in/amit-ghosh-0b6807228/)
-- Email: (amitghosh0595c@gmail.com)
+     <img width="949" alt="Home1" src="https://user-images.githubusercontent.com/85006343/194060811-00341714-55c0-4bc8-8700-0b063dc728f6.png">
 
-👤 **Hrutugandha Nishigandh**
+     <img width="947" alt="Home2" src="https://user-images.githubusercontent.com/85006343/194060922-a809d4fb-f189-4cac-aeb6-8fb610f45112.png">
 
-- Github: [@hrutugandha](https://github.com/hrutugandha)
-- Linkedin: [hrutugandha-n-32735219b](https://www.linkedin.com/in/hrutugandha-n-32735219b/)
-- Email: (hrutunishi19@gmail.com)
+- ## Sign-Up page
+
+     <img width="959" alt="SignupPage" src="https://user-images.githubusercontent.com/85006343/194061165-444ed2f2-55e3-4e9f-832e-7d590321a909.png">
+
+- ## Login page
+
+     <img width="959" alt="LoginPage" src="https://user-images.githubusercontent.com/85006343/194061254-3017fd41-b20e-4cc3-9cc3-076d0e47b092.png">
+
+- ## Product page
+
+     <img width="950" alt="ProductPage" src="https://user-images.githubusercontent.com/85006343/194061740-f418f711-de82-4a7c-81ac-99ed6bb9c09f.png">
 
 
-👤 **Punam Jagtap**
+- ## Cart page
 
-- Github: [@harshadajagtap25](https://github.com/harshadajagtap25)
-- Linkedin: [harshada-jagtap-88334a192/](https://www.linkedin.com/in/harshada-jagtap-88334a192/)
-- Email: (harshadajagtap199725@gmail.com)
+     <img width="960" alt="CartPage" src="https://user-images.githubusercontent.com/85006343/194061378-f7b965c7-a3f7-463b-9a6d-8eef6899d063.png">
 
-👤 **Hisamudin Shaikh**
+- ## Checkout page
 
-- Github: [@Hisam-94](https://github.com/Hisam-94)
-- Linkedin: [hisamuddin-shaikh](https://www.linkedin.com/in/hisamuddin-shaikh/)
-- Email: (Hisamuddin@gmail.com)
+     <img width="959" alt="CheckoutPage" src="https://user-images.githubusercontent.com/85006343/194061458-8775b9ff-12ec-4ae2-bfd7-7a98493f06b7.png">
+
+
 
 ## 🤝 Contributing
 
