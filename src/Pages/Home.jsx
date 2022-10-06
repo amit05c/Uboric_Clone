@@ -11,7 +11,7 @@ import Instructions from "../components/AboutUs/Instructions"
 const Home = () => {
   return (
     <div>
-     <div style={{paddingTop:"2%"}}> <Slider/></div>
+     <div > <Slider/></div>
       {/* <button className={styles.shopnow}>Shop now</button> */}
       {/* images */}
     <div className={styles.imgs}>

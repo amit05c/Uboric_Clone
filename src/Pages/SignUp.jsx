@@ -22,9 +22,9 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { register } from "../Redux/AuthReducer/action";
 import { REGISTER_FAILURE, REGISTER_SUCCESS } from "../Redux/AuthReducer/actionTypes";
-
-
 function reducer(state, action) {
+  // console.log(action)
+  // console.log(state)
   switch (action.type) {
     case "name":
       return {
@@ -74,7 +74,7 @@ const SignUp = () => {
             title: 'Account created.',
             description: "Your account has been successfully created",
             status: 'success',
-            duration: 9000,
+            duration: 5000,
             isClosable: true,
           })
         navigate("/sign-in", { replace: true });
@@ -82,7 +82,7 @@ const SignUp = () => {
         toast({
           description: "Please enter credentials",
           status: 'error',
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         })
       }
