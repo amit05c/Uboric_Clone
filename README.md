@@ -36,9 +36,9 @@ Hello everyone, this is a Readme for our construct week project that has been co
 
 👤 **Punam Jagtap**
 
-   - [@Github](https://github.com/harshadajagtap25)
+   - [@Github](https://github.com/punam102)
    - [@Linkedin](https://www.linkedin.com/in/punam-jagtap-090839232/)
-   - [Email](harshadajagtap199725@gmail.com)
+   - [Email](jagtappunam129@gmail.com)
 
 
 
