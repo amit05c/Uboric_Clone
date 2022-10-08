@@ -15,7 +15,7 @@ import {
 
 const Items = ({  type, BrandFn }) => {
   return (
-    <Flex>
+    <Flex gap="1rem">
       <Checkbox
         onChange={() => {
           BrandFn(type);
@@ -29,7 +29,7 @@ const Items = ({  type, BrandFn }) => {
 export const Brand = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   let catParams= searchParams.getAll("category") || ""
-  // let priceParams= searchParams.getAll("Price") || ""
+  let priceParams= searchParams.getAll("range") || ""
   const [brand,setBrand] = useState([])
   const BrandFn = (type) => {
     let newbrand= type;
@@ -37,20 +37,22 @@ export const Brand = () => {
       let x= brand.filter(el=>el!=newbrand)
       setBrand(x)
     }else{
-      setBrand([...catParams,...brand,newbrand])
+      setBrand([...brand,newbrand])
     }
 
   };
   
   useEffect(()=>{
     setSearchParams({
+      category:[...catParams],
+      range:[...priceParams],
       brand
     })
   },[brand])
     
 
   return (
-    <Accordion allowToggle width={"80%"}>
+    <Accordion allowToggle width={"100%"}>
       <AccordionItem md={"1rem"}>
         <h2>
           <AccordionButton>

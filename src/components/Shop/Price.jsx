@@ -17,7 +17,7 @@ import {
 const Items = ({ name, type, priceFn,filterPrice,start,end }) => {
 
   return (
-    <Flex>
+    <Flex gap="1rem">
       <input type={"radio"}
       value={type}
       name={name}
@@ -33,6 +33,9 @@ const Items = ({ name, type, priceFn,filterPrice,start,end }) => {
 
 export const Price = ({filterPrice}) => {
     const [searchParams, setSearchParams] = useSearchParams();
+    let catParams= searchParams.getAll("category") || ""
+    let brandParams= searchParams.getAll("brand") || ""
+    console.log(searchParams)
     const [priceRange,setPriceRange] = useState([]);
 
   
@@ -43,12 +46,14 @@ export const Price = ({filterPrice}) => {
 
   useEffect(()=>{
     setSearchParams({
+       category:catParams,
+       brand:brandParams,
         range:priceRange
     })
   },[priceRange])
 
   return (
-    <Accordion allowToggle width={"80%"}>
+    <Accordion allowToggle width={"100%"}>
       <AccordionItem>
         <h2>
           <AccordionButton>

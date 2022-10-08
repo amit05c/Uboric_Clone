@@ -29,6 +29,8 @@ const Items = ({ type, categoryFn }) => {
 export const Category = () => {
   const [searchParams, setSearchParams] = useSearchParams();
     const [category,setCategory] = useState([]);
+    let priceParams= searchParams.getAll("range") || ""
+    let brandParams= searchParams.getAll("brand") || ""
   const categoryFn = (type) => {
     
     let newCat= type;
@@ -40,9 +42,11 @@ export const Category = () => {
     }
 
   };
-
+console.log(category)
   useEffect(()=>{
     setSearchParams({
+      range:priceParams,
+      brand:brandParams,
       category
     })
   },[category])
@@ -51,7 +55,7 @@ export const Category = () => {
   // console.log(category)
 
   return (
-    <Accordion allowToggle width={"80%"}>
+    <Accordion allowToggle width={"100%"}>
       <AccordionItem>
         <h2>
           <AccordionButton>

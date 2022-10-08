@@ -22,8 +22,8 @@ const Shop = () => {
     const [updateData,setUpdateData]= useState([])
     // const [data,setData]= useState(products)
   
-    console.log(products)
-    
+    // console.log(products)
+    // console.log(searchParams)
     const filterPrice= (start,end)=>{
       setUpdate("true")
       let newData=products.filter(el=>Number(el.Price)>=Number(start) && Number(el.Price<=Number(end)))
@@ -34,9 +34,9 @@ const Shop = () => {
     useEffect(()=>{
       dispatch(getData())
     },[update])
-    console.log(update)
+    // console.log(update)
 
-  
+  // console.log(location.search)
     useEffect(()=>{
       if(location || products.length==0){
         
@@ -49,23 +49,30 @@ const Shop = () => {
         // const sortBy= searchParams.getAll('sortBy')
         const category= searchParams.getAll('category')
         const brand= searchParams.getAll('brand')
-        // console.log(category)
+        const Price= searchParams.getAll('range')
+        console.log(Price)
+        console.log(brand)
+        let params={
+          category,brand,Price
+        }
+        console.log(params)
         const queryParams={
           params:{
             category: category,
-            brand:brand
+            brand:brand,
+            Price:Price
             
           }
         
           
           
         }
-        // console.log(queryParams)
+        // console.log(`params ${queryParams.pa}`)
         dispatch(getData(queryParams))
     }
       
       
-    },[location])
+    },[location,update])
 
 // console.log(products)
 
@@ -77,8 +84,8 @@ const Shop = () => {
     
     
   return (
-    <Flex w="100%" >
-      <Stack w="30%" gap={"1rem"}>
+    <Flex w="100%" gap="2rem" padding="2rem">
+      <Stack w="20%" gap={"1rem"}>
         <Price filterPrice={filterPrice}/>
         
         <Brand/>
@@ -86,7 +93,7 @@ const Shop = () => {
         <Category/>
       </Stack>
 
-      <Grid templateColumns={breakpoints} gap={6} cursor={"pointer"}>
+      <Grid templateColumns={breakpoints} gap={6} cursor={"pointer"} w="80%">
  
         
         { update=="true"? updateData.map(item=>(
@@ -96,6 +103,10 @@ const Shop = () => {
 
           <AllProducts key={item.id} data={item}/>
           ))}
+         {/* { products?.map(item=>(
+
+<AllProducts key={item.id} data={item}/>
+))} */}
       </Grid>
     </Flex>
   )
