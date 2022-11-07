@@ -16,7 +16,7 @@ import ReqAuth from "../components/Authentication/ReqAuth"
 const AllRoutes = () => {
   return (
     <Routes>
-        <Route path='/' element={ <ReqAuth><Home/></ReqAuth> } />
+        <Route path='/' element={ <Home/> } />
         <Route path='/shop' element={<ReqAuth><Shop/></ReqAuth> } />
         <Route path='/shop/:id' element={<ReqAuth><ProductDetails/></ReqAuth> } />
         <Route path='/about-us' element={<AboutUs/>} />

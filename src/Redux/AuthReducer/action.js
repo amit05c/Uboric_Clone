@@ -5,7 +5,7 @@ const register = (payload) => (dispatch) => {
   dispatch({ type: types.REGISTER_REQUEST });
   console.log(payload);
   return axios
-    .post("https://murmuring-sea-06688.herokuapp.com/user/signup", payload)
+    .post("https://uboric-2bqj.onrender.com/user/signup", payload)
     .then((r) => {
       dispatch({ type: types.REGISTER_SUCCESS, payload: r.data });
       return types.REGISTER_SUCCESS;
@@ -19,9 +19,10 @@ const register = (payload) => (dispatch) => {
 const login = (params) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("https://murmuring-sea-06688.herokuapp.com/user/login", params)
+    .post("https://uboric-2bqj.onrender.com/user/login", params)
     .then((r) => {
       dispatch({ type: types.LOGIN_SUCCESS, payload: r.data });
+      console.log(r.data)
       return types.LOGIN_SUCCESS;
     })
     .catch((e) => {

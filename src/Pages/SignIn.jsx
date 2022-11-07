@@ -26,7 +26,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const isLoading = useSelector((state) => console.log(state.AuthReducer.isLoading));
+    const isLoading = useSelector((state) => (state.AuthReducer.isLoading));
 
     const loginHandler = () => {
       if (email && password) {
@@ -36,6 +36,7 @@ const SignIn = () => {
         };
         dispatch(login(params)).then((res) => {
           if (res === LOGIN_SUCCESS) {
+            console.log(res)
               toast({
                 description: "Signed in successfully",
                 status: 'success',
@@ -44,7 +45,12 @@ const SignIn = () => {
               })
             navigate("/", { replace: true });
           } else {
-           //err
+            toast({
+              description: "Failed",
+              status: 'error',
+              duration: 2000,
+              isClosable: true,
+            })
           }
         });
       }

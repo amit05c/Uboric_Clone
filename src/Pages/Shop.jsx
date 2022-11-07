@@ -24,12 +24,14 @@ const Shop = () => {
   
     // console.log(products)
     // console.log(searchParams)
-    const filterPrice= (start,end)=>{
+    const filterPrice= async(start,end)=>{
+      dispatch(getData())
       setUpdate("true")
       let newData=products.filter(el=>Number(el.Price)>=Number(start) && Number(el.Price<=Number(end)))
       setUpdateData(newData)
-    
+      
     }
+    
     // console.log(updateData)
     useEffect(()=>{
       dispatch(getData())
