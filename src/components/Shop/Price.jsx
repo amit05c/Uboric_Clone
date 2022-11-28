@@ -8,8 +8,6 @@ import {
   AccordionIcon,
   Box,
   Flex,
-  Input,
-  Checkbox,
   Text,
   Radio,
 } from "@chakra-ui/react";
@@ -23,7 +21,7 @@ const Items = ({ name, type, priceFn,filterPrice,start,end }) => {
       name={name}
         onChange={() => {
           priceFn(type);
-          filterPrice(start,end)
+          // filterPrice(start,end)
         }}
       />
       <Text color={"#818181"}  >{type}</Text>
@@ -41,7 +39,8 @@ export const Price = ({filterPrice}) => {
   
 
   const PriceRange = (type) => {
-    setPriceRange([type])
+    let x= type.split("-")
+    setPriceRange(x)
   };
 
   useEffect(()=>{
@@ -70,7 +69,7 @@ export const Price = ({filterPrice}) => {
             type={"100-500"}
 
             priceFn={PriceRange}
-            filterPrice={filterPrice}
+            // filterPrice={filterPrice}
             start="0"
             end="500"
           />
@@ -79,7 +78,7 @@ export const Price = ({filterPrice}) => {
             name="price"
             type={"501-1000"}
             priceFn={PriceRange}
-            filterPrice={filterPrice}
+            // filterPrice={filterPrice}
             start="501"
             end="1000"
           />

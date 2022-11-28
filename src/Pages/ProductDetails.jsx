@@ -53,8 +53,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const [selectSize,setSize]= useState('')
   const [qty,setQty]= useState(1)
-  
-  
+  const token=localStorage.getItem("token")
+  // console.log(token)
   const singleProd = products.filter((el) => el.id === id);
   const sizes = singleProd?.size?.split(" ").map(Number);
   console.log(sizes);
@@ -67,23 +67,31 @@ const ProductDetails = () => {
    dispatch(getCartData())
     
   }, []);
-  // console.log(cartData.length+1)
+  console.log(cartData)
+
+  // useEffect(()=>{
+  //    axios.get(`http://localhost:8080/data/singleProd/${id}`,{
+  //    headers:{authorization: `bear ${token}`}
+  //      }).then(res=>console.log(res.data.data))
+  // },[])
+
+
+
   const addToCart=async ()=>{
     
     const newData={
       // id:cartData.length+1,
-      id:Date.now(),
-      title:singleProd[0].title,
-      price:singleProd[0].Price,
       size:selectSize,
       quantity:qty,
-      image: singleProd[0].images
+      
     }
      
     // console.log(newData)
     
     if(selectSize!==""){
-      await axios.post(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`,newData)
+      await axios.post(`http://localhost:8080/cart/add/${id}`,newData,{ 
+        headers: {authorization : `bearer ${token}`}
+      })
       .then(()=>dispatch(getCartData()))
       .then(()=>navigate(`/cart`))
 

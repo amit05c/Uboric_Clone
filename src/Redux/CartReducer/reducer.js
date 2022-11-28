@@ -17,10 +17,12 @@ import {
     isLoading: false,
     isError: false,
     cartData: [],
+    total: 0
   };
   
   export const reducer = (state = initCart, action) => {
     const { type, data } = action;
+    // console.log(data)
     switch (type) {
       case GET_CART_REQUEST:
         return {
@@ -32,7 +34,8 @@ import {
         return {
           ...state,
           isLoading: false,
-          cartData: data,
+          cartData: data.cartdata,
+          total: data.total,
           isError: false,
         };
   
@@ -52,7 +55,7 @@ import {
         return {
           ...state,
           isLoading: false,
-          cartData: [...data, data],
+          // cartData: [...data, data],
           isError: false,
         };
   

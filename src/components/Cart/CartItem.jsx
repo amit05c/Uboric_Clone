@@ -5,37 +5,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCartData, getCartData, updateCartData } from "../../Redux/CartReducer/action";
 
 
-const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,getTotal}) => {
+const CartItem = ({ title, price, size, colour = "mixed",image_url,quantity,_id,getTotal}) => {
   const dispatch = useDispatch()
   const cartData = useSelector((store)=>store.CartReducer.cartData)
   const [count, setCount] = useState(quantity);
-  
+  const id= _id
+  const image=image_url
   const increaseCount = (id)=>{
-    setCount((prev) => prev + 1)
+    setCount((prev) => prev+1)
     const params = {
       quantity:count+1,
-      // title:title,
-      // size:size,
-      // image:image,
-      // id:id,
-      // price:price
+      price
     }
-    // console.log(params)
+    // console.log(count)
     // const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
     // getTotal(total)
     dispatch(updateCartData(id,params))
-    dispatch(getCartData())
+    // dispatch(getCartData())
   }
 
   const deceraseCount = (id)=>{
-    setCount((prev) => prev - 1)
+    setCount((prev) => Number(prev) - 1)
     const params = {
       quantity:count-1,
-      // title:title,
-      // size:size,
-      // image:image,
-      // id:id,
-      // price:price
+      price
+      
     }
     dispatch(updateCartData(id,params))
     dispatch(getCartData())
@@ -75,6 +69,7 @@ const CartItem = ({ title, price, size, colour = "mixed", image,quantity,id ,get
               </button>
               <Box>{count}</Box>
               <button
+            
                 style={{ fontSize: "1.5rem", padding: "0 1rem" }}
                 onClick={() => increaseCount(id)}
               >

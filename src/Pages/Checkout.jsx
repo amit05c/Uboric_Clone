@@ -25,6 +25,8 @@ import countries from "../utils/contries.json";
 import state from "../utils/states.json";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData } from "../Redux/CartReducer/action";
+import axios from "axios";
+import {  useNavigate } from "react-router-dom";
 const Checkout = () => {
   const [show, setShow] = useState(false);
 
@@ -32,7 +34,7 @@ const Checkout = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [query1, setQuery1] = useState("");
   const [suggestions1, setSuggestions1] = useState([]);
-
+  const navigate= useNavigate()
   const queryHandler = useCallback((val) => {
     setQuery(val);
   }, []);
@@ -40,6 +42,8 @@ const Checkout = () => {
   const queryHandler1 = useCallback((val) => {
     setQuery1(val);
   }, []);
+
+
 
   useEffect(() => {
     if (query === "") {
@@ -96,6 +100,7 @@ const Checkout = () => {
 
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
+  const token= localStorage.getItem("token")
   const getSearchData = (countryData) => {
     setCountry(countryData);
   };
@@ -117,7 +122,7 @@ const Checkout = () => {
   const [formData, setFormData] = useState([]);
   console.log(formData);
   const toast = useToast()
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     const billingData = {
       fname: fname,
       lname: lname,
@@ -132,6 +137,11 @@ const Checkout = () => {
       state: "Maharashtra",
     };
     setFormData(billingData);
+
+    await axios.delete(`http://localhost:8080/cart/checkout`,{
+      headers: { authorization : `Bearer ${token}` }
+    }).then(()=>navigate("/"))
+
   };
   return (
     <Box>
@@ -519,7 +529,7 @@ const Checkout = () => {
                       title: "Order Placed.",
                       description: "Thank you for shopping with us.",
                       status: "success",
-                      duration: 9000,
+                      duration: 600,
                       isClosable: true,
                     });handleSubmit()}
                   }

@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from "react";
 // import data from "../../db.json"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Breadcrumb,
@@ -23,6 +23,7 @@ import { useNavigate } from "react-router-dom";
 import { register } from "../Redux/AuthReducer/action";
 import { REGISTER_FAILURE, REGISTER_SUCCESS } from "../Redux/AuthReducer/actionTypes";
 function reducer(state, action) {
+ 
   // console.log(action)
   // console.log(state)
   switch (action.type) {
@@ -65,9 +66,21 @@ const SignUp = () => {
   const [state, setter] = useReducer(reducer, initialState);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const {errorMessage}= useSelector(state=>state.AuthReducer)
+console.log(errorMessage)
   const toast = useToast()
   const signupHandler = () => {
+    if(state.name=="" || state.email=="" || state.password=="" || state.phone==""){
+      toast({
+    
+        description: "Fill all the credentials",
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
+      return
+    }
+
     dispatch(register(state)).then((r) => {
       if (r === REGISTER_SUCCESS) {
           toast({
@@ -80,7 +93,7 @@ const SignUp = () => {
         navigate("/sign-in", { replace: true });
       }else if (r === REGISTER_FAILURE) {
         toast({
-          description: "Please enter credentials",
+          description: errorMessage,
           status: 'error',
           duration: 5000,
           isClosable: true,

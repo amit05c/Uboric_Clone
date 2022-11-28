@@ -1,5 +1,6 @@
 import * as types from './actionType'
 import axios from 'axios'
+const token=localStorage.getItem("token")
 const handleCartRequest= ()=>{
     return {
         type:types.GET_CART_REQUEST
@@ -45,9 +46,11 @@ const deleteCartFailure = ()=>{
 }
 export const updateCartData = (id,params)=>(dispatch)=>{
     dispatch(updateCartRequest())
-    return axios.put(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata/${id}`,params
+    return axios.patch(`http://localhost:8080/cart/update/${id}`,params,{
+        headers: { authorization : `Bearer ${token}` }
+      }
       ).then((res)=>{
-        dispatch(updateCartSuccess(res.data))
+        console.log(res.data)
     }).then((dispatch(getCartData())))
     .catch((e)=>{
         dispatch(updateCartFailure())
@@ -56,7 +59,9 @@ export const updateCartData = (id,params)=>(dispatch)=>{
 
 export const deleteCartData = (id)=>(dispatch)=>{
     dispatch(deleteCartRequest())
-    return axios.delete(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata/${id}`)
+    return axios.delete(`http://localhost:8080/cart/delete/${id}`,{
+        headers: { authorization : `Bearer ${token}` }
+      })
     // .then((res)=>{ dispatch(deleteCartSuccess(res.data))
     // })
     .then(dispatch(getCartData()))
@@ -67,8 +72,11 @@ export const deleteCartData = (id)=>(dispatch)=>{
 
 export const getCartData =  ()=>async(dispatch)=> {
         dispatch(handleCartRequest())
-      await axios.get(`https://62ed747cc1ef25f3da7a4746.mockapi.io/userdata`)
+       await axios.get(`http://localhost:8080/cart/cartdata`,{
+        headers: { authorization : `Bearer ${token}` }
+      })
       .then((res)=>{return dispatch({type: types.GET_CART_SUCCESS,data:(res.data)})})
+      
         .catch(e=>dispatch(handleCartFailure(e)))
 }
 

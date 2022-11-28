@@ -15,17 +15,18 @@ import { useSelector,useDispatch } from "react-redux";
 import {getCartData} from "../Redux/CartReducer/action"
 
 
-  
 const Cart = () => {
   
-  const {cartData} = useSelector((store)=>store.CartReducer)
+ 
+  const {cartData,total} = useSelector((store)=>store.CartReducer)
   const dispatch = useDispatch()
-  const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
-  console.log(cartData)
+  // const total = cartData.map((item)=>item.price*item.quantity).reduce((a,b)=>a+b,0)
+
+  console.log(cartData,total)
 
   useEffect(()=>{ 
     dispatch(getCartData())
-  },[cartData.length,dispatch])
+  },[cartData.length,dispatch,total])
 
   const navigate = useNavigate()
   const [coupon,setCoupon] = useState("")
@@ -60,11 +61,11 @@ const Cart = () => {
         <Box display={"flex"}  gridTemplateColumns={"3fr 2fr"} gap={"3rem"} mt="2rem" position="relative">
           <Box width={"60%"}>
             <Box>
-              {cartData.length > 0 && cartData.map((item)=>(
-                <CartItem key={item.id} {...item}/>
-              ))}              
+              {cartData.length > 0 ? cartData.map((item)=>(
+                <CartItem key={item._id} {...item}/>
+              )) : <Text textAlign={"center"} fontSize={"4xl"} mb="15rem">Cart Empty!</Text>}              
             </Box>
-            <Box padding={"2rem"}>
+         {cartData.length>0 && <Box padding={"2rem"}>
               <Heading size={"sm"} textAlign="start" mb={"1rem"}>
                 Coupon code:
               </Heading>
@@ -99,9 +100,10 @@ const Cart = () => {
               >
                 Share cart
               </Button>
-            </Box>
+            </Box>}   
+         
           </Box>
-            <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"} zIndex="1">
+          {cartData.length >0 && <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"} zIndex="1">
             <Box padding="2rem" bgColor={"#f5f5f5"}>
               <Flex
                 justifyContent={"space-between"}
@@ -151,7 +153,8 @@ const Cart = () => {
               </Button>
             </Flex>
           {/* </Box> */}
-            </Box>
+            </Box>}  
+          
         </Box>
       </Box>      
     </Box>
