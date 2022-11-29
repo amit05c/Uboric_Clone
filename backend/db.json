@@ -1,0 +1,94 @@
+{
+    "data":[
+        {
+            "_id":"1",
+            "category":"men",
+            "item":"t-shirt",
+            "title":"Roadstar",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/9793511/2022/4/18/4c5b3317-e20f-4697-b9f0-0c236049e3021650284939109RoadsterMenBlackPureCottonT-shirt1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/9793511/2022/4/18/15d6e7ec-fa7a-423e-a274-4fac6eb0bc161650284939119RoadsterMenBlackPureCottonT-shirt15.jpg"],
+            "price": 174,
+            "brand":"Roadstar"
+        },
+
+        {
+            "_id":"2",
+            "category":"men",
+            "item":"t-shirt",
+            "title":"Heutrap",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2019/12/12/e47f6e3e-9c44-44b7-b134-314cdde804c11576102551371-2.jpg"],
+            "price": 373,
+            "brand": "Heutrap"
+        },
+
+        {
+            "_id":3,
+            "category":"men",
+            "item":"t-shirt",
+            "title":"Defference of opinion",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16407468/2021/12/28/fce7ca1e-01ec-4c12-a90f-c7b75abda0e01640669480687-Difference-of-Opinion-Men-Tshirts-4021640669480120-1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16407468/2021/12/28/bdc50039-7f12-4ba2-a170-72b3af42a0061640669480679-Difference-of-Opinion-Men-Tshirts-4021640669480120-2.jpg"],
+            "price": 506,
+            "brand":"HRX"
+        },
+
+        {
+            "_id":"4",
+            "category":"men",
+            "item":"t-shirt",
+            "title":"Defference of opinion",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/6825469/2018/10/17/6a11fe3f-73b0-43ee-8d48-8de1cb502a411539758421051-HRX-by-Hrithik-Roshan-Men-White-Printed-Round-Neck-T-shirt-9-1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/6825469/2018/10/17/6a11fe3f-73b0-43ee-8d48-8de1cb502a411539758421051-HRX-by-Hrithik-Roshan-Men-White-Printed-Round-Neck-T-shirt-9-1.jpg"],
+            "price": 359,
+            "brand":"HRX"
+        },
+
+        {
+            "_id":"5",
+            "category":"men",
+            "item":"Lounge tshirt",
+            "title":"H&M",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11468744/2020/10/10/22b1bf87-017f-4fa4-ac85-3ce4551cfeed1602269239346HMMenWhiteSolidSustainableT-shirtLooseFit1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11468744/2020/10/10/f70b2a96-5d4b-4fd9-9888-a8bbd16a65b11602269239413HMMenWhiteSolidSustainableT-shirtLooseFit2.jpg"],
+            "price": 799,
+            "brand":"H&M"
+        },
+
+        {
+            "_id":"6",
+            "category":"men",
+            "item":"Lounge tshirt",
+            "title":"U.S POLO ASSN",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/2465172/2018/3/12/11520847155307-US-Polo-Assn-Men-Lounge-Tshirts-4791520847155150-1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/2465172/2018/3/12/11520847155290-US-Polo-Assn-Men-Lounge-Tshirts-4791520847155150-2.jpg"],
+            "price": 629,
+            "brand":"U.S POLO ASSN"
+        },
+
+        {
+            "_id":"7",
+            "category":"men",
+            "item":"Lounge tshirt",
+            "title":"U.S POLO ASSN",
+            "size":["S","M","L","XL"],
+            "image_url":["https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16127480/2022/1/17/e31953a2-ea26-4767-876b-74dbbaa46a8d1642397505300-US-Polo-Assn-Men-Black-Colourblocked-Lounge-T-shirt-79416423-1.jpg",
+
+        "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16127480/2022/1/17/b948b27e-e555-4a80-8d76-5f4306772bb81642397505290-US-Polo-Assn-Men-Black-Colourblocked-Lounge-T-shirt-79416423-2.jpg"],
+            "price": 854,
+            "brand":"U.S POLO ASSN"
+        }
+    ]
+}
