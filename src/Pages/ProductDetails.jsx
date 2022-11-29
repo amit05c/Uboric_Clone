@@ -57,8 +57,8 @@ const ProductDetails = () => {
   // console.log(token)
   const singleProd = products.filter((el) => el._id === _id);
   const sizes = singleProd[0]?.size
-  // console.log(sizes);
-  // console.log(singleProd);
+  console.log(sizes);
+  console.log(singleProd);
   // console.log(_id);
     
 
