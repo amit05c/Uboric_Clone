@@ -13,6 +13,7 @@ function App() {
       <AllRoutes/>
       <Footer/>
       {/* uboric project */}
+      {/* testing */}
     </div>
   );
 }
