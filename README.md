@@ -1,4 +1,3 @@
-@@ -31,29 +31,26 @@ We are given a task to make a functional clone website of Clockify is the most p
 Clockify is used by everyone from freelancers, small businesses, and agencies, to government institutions, NGOs, universities, and Fortune 500 companies.
 We tried our best to clone the website from scratch based on the knowledge gained from unit-6 of Journey (unit 1–6) at Masai School.  We have imparted the majority of functions that the Clockify. 
 
@@ -34,3 +33,26 @@ We tried our best to clone the website from scratch based on the knowledge gaine
 - Payment and checkout
 
 👤 **Amit Ghosh**
+
+- Github: [@amit05c](https://github.com/amit05c)
+- Linkedin: [amit-ghosh-0b6807228](https://www.linkedin.com/in/amit-ghosh-0b6807228/)
+- Email: (amitghosh0595c@gmail.com)
+👤 **Hrutugandha Nishigandh**
+- Github: [@hrutugandha](https://github.com/hrutugandha)
+- Linkedin: [hrutugandha-n-32735219b](https://www.linkedin.com/in/hrutugandha-n-32735219b/)
+- Email: (hrutunishi19@gmail.com)
+👤 **Punam Jagtap**
+- Github: [@harshadajagtap25](https://github.com/harshadajagtap25)
+- Linkedin: [harshada-jagtap-88334a192/](https://www.linkedin.com/in/harshada-jagtap-88334a192/)
+- Email: (harshadajagtap199725@gmail.com)
+👤 **Hisamudin Shaikh**
+- Github: [@Hisam-94](https://github.com/Hisam-94)
+- Linkedin: [hisamuddin-shaikh](https://www.linkedin.com/in/hisamuddin-shaikh/)
+- Email: (Hisamuddin@gmail.com)
+## 🤝 Contributing
+Contributions, issues and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/Devashishsaurabh/fixed-thread-889/issues).
+## Show your support
+Give a ⭐️ if you like this project!
+## Acknowledgments
+- We take all the responsiblity for every single line of code. The desgin inspire from Clockify.
