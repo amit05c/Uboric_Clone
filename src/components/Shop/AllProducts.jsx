@@ -19,7 +19,7 @@ const AllProducts = ({data}) => {
     mb="1rem"
    
      flexDirection={"column"} justifyContent="center" alignItems={"center"}
-onClick={()=>navigate(`/shop/${data.id}`)}
+onClick={()=>navigate(`/shop/${data._id}`)}
     >
         <Image data-aos='fade-up' src={data.images} boxSize="70%"  margin={"auto"} />
         

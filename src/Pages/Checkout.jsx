@@ -29,7 +29,7 @@ import axios from "axios";
 import {  useNavigate } from "react-router-dom";
 const Checkout = () => {
   const [show, setShow] = useState(false);
-
+  console.log(""===true)
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [query1, setQuery1] = useState("");
@@ -115,32 +115,61 @@ const Checkout = () => {
   const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [pinCode, setPinCode] = useState();
-  const [phone, setPhone] = useState();
+  const [pinCode, setPinCode] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [textArea, setTextArea] = useState("");
   const [formData, setFormData] = useState([]);
-  console.log(formData);
+  // console.log(formData);
+  
   const toast = useToast()
-  const handleSubmit = async() => {
-    const billingData = {
-      fname: fname,
-      lname: lname,
-      company: company,
-      address: address,
-      city: city,
-      pinCode: pinCode,
-      phone: phone,
-      email: email,
-      textArea: textArea,
-      country: "India",
-      state: "Maharashtra",
-    };
-    setFormData(billingData);
 
-    await axios.delete(`http://localhost:8080/cart/checkout`,{
+  const handleSubmit = async() => {
+    // const billingData = {
+    //   fname: fname,
+    //   lname: lname,
+    //   company: company,
+    //   address: address,
+    //   city: city,
+    //   pinCode: pinCode,
+    //   phone: phone,
+    //   email: email,
+    //   textArea: textArea,
+    //   country: "India",
+    //   state: "Maharashtra",
+    // };
+    // setFormData(billingData);
+    console.log(fname,lname,address,city,pinCode,phone,state,country)
+  
+    if(fname == "" || lname =="" || address =="" || city == "" || pinCode =="" || phone == ""  || state ==""){
+  // console.log(billingData)
+
+  // console.log(formData)
+  toast({
+  
+    position: 'top-center',
+    description: "Fill all the details",
+    status: "error",
+    duration: 600,
+    isClosable: true,
+  })  
+    }else{
+      
+      toast({
+        size:"500",
+        position: 'top-center',
+        title: "Order Placed.",
+        description: "Thank you for shopping with us.",
+        status: "success",
+        duration: 600,
+        isClosable: true,
+      })
+
+      await axios.delete(`https://scary-tick-trench-coat.cyclic.app/cart/checkout`,{
       headers: { authorization : `Bearer ${token}` }
     }).then(()=>navigate("/"))
+    }
+    
 
   };
   return (
@@ -249,7 +278,7 @@ const Checkout = () => {
                   <Input 
                   size="lg"
                   borderRadius={"none"}
-                  defaultValue={"India"}/>
+                  defaultValue={"India"} onChange={(e)=>setCountry(e.target.value)}/>
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
@@ -291,7 +320,7 @@ const Checkout = () => {
                     label="Maharashtra"
                   /> */}
                   <Input borderRadius={"none"}
-                    size="lg" defaultValue={"Maharashtra"}/>
+                    size="lg" defaultValue={"Maharashtra"} vlaue={state}  onChange={(e) => setState(e.target.value)}/>
                 </FormControl>
               </Box>
               <Box mb="1.3rem">
@@ -522,17 +551,8 @@ const Checkout = () => {
                 width={"100%"}
                 borderRadius={"none"}
                 _hover="none"
-                  onClick={() =>{
-                    toast({
-                      size:"500",
-                      position: 'top-center',
-                      title: "Order Placed.",
-                      description: "Thank you for shopping with us.",
-                      status: "success",
-                      duration: 600,
-                      isClosable: true,
-                    });handleSubmit()}
-                  }
+                  onClick={handleSubmit}
+                  
                 >
                   Place Order
                 </Button>

@@ -5,7 +5,7 @@ const register = (payload) => (dispatch) => {
   dispatch({ type: types.REGISTER_REQUEST });
   // console.log(payload);
   return axios
-    .post("http://localhost:8080/user/signup", payload)
+    .post("https://scary-tick-trench-coat.cyclic.app/user/signup", payload)
     .then((r) => {
       dispatch({ type: types.REGISTER_SUCCESS, payload: r.data });
       console.log(r.data)
@@ -21,7 +21,7 @@ const register = (payload) => (dispatch) => {
 const login = (params) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("http://localhost:8080/user/login", params)
+    .post("https://scary-tick-trench-coat.cyclic.app/user/login", params)
     .then((r) => {
       dispatch({ type: types.LOGIN_SUCCESS, payload: r.data });
       console.log(r.data)

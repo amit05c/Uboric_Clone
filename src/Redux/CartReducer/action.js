@@ -46,7 +46,7 @@ const deleteCartFailure = ()=>{
 }
 export const updateCartData = (id,params)=>(dispatch)=>{
     dispatch(updateCartRequest())
-    return axios.patch(`http://localhost:8080/cart/update/${id}`,params,{
+    return axios.patch(`https://scary-tick-trench-coat.cyclic.app/cart/update/${id}`,params,{
         headers: { authorization : `Bearer ${token}` }
       }
       ).then((res)=>{
@@ -59,7 +59,7 @@ export const updateCartData = (id,params)=>(dispatch)=>{
 
 export const deleteCartData = (id)=>(dispatch)=>{
     dispatch(deleteCartRequest())
-    return axios.delete(`http://localhost:8080/cart/delete/${id}`,{
+    return axios.delete(`https://scary-tick-trench-coat.cyclic.app/cart/delete/${id}`,{
         headers: { authorization : `Bearer ${token}` }
       })
     // .then((res)=>{ dispatch(deleteCartSuccess(res.data))
@@ -72,7 +72,7 @@ export const deleteCartData = (id)=>(dispatch)=>{
 
 export const getCartData =  ()=>async(dispatch)=> {
         dispatch(handleCartRequest())
-       await axios.get(`http://localhost:8080/cart/cartdata`,{
+       await axios.get(`https://scary-tick-trench-coat.cyclic.app/cart/cartdata`,{
         headers: { authorization : `Bearer ${token}` }
       })
       .then((res)=>{return dispatch({type: types.GET_CART_SUCCESS,data:(res.data)})})

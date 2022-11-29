@@ -45,7 +45,7 @@ const innerDivMargin={
 }
 
 const ProductDetails = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
   const navigate= useNavigate()
   const  {products}  = useSelector((state) => state.ProductReducer);
   const {cartData} = useSelector((state)=>state.CartReducer)
@@ -55,11 +55,11 @@ const ProductDetails = () => {
   const [qty,setQty]= useState(1)
   const token=localStorage.getItem("token")
   // console.log(token)
-  const singleProd = products.filter((el) => el.id === id);
-  const sizes = singleProd?.size?.split(" ").map(Number);
-  console.log(sizes);
-  console.log(singleProd);
-  console.log(id);
+  const singleProd = products.filter((el) => el._id === _id);
+  const sizes = singleProd[0]?.size
+  // console.log(sizes);
+  // console.log(singleProd);
+  // console.log(_id);
     
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const ProductDetails = () => {
    dispatch(getCartData())
     
   }, []);
-  console.log(cartData)
+  // console.log(cartData)
 
   // useEffect(()=>{
   //    axios.get(`http://localhost:8080/data/singleProd/${id}`,{
@@ -89,7 +89,7 @@ const ProductDetails = () => {
     // console.log(newData)
     
     if(selectSize!==""){
-      await axios.post(`http://localhost:8080/cart/add/${id}`,newData,{ 
+      await axios.post(`https://scary-tick-trench-coat.cyclic.app/cart/add/${_id}`,newData,{ 
         headers: {authorization : `bearer ${token}`}
       })
       .then(()=>dispatch(getCartData()))
