@@ -14,7 +14,7 @@ const handleFailure= ()=>{
 }
 
 export const getData =  (params)=>async(dispatch)=> {
-    console.log("params"+ " "+ params)
+    // console.log("params"+ " "+ params)
         dispatch(handleRequest())
       await axios.get(`https://scary-tick-trench-coat.cyclic.app/data?`,params)
     //   console.log(params)

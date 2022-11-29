@@ -59,8 +59,8 @@ const Shop = () => {
       const category = searchParams.getAll("category");
       const brand = searchParams.getAll("brand");
       const Price = searchParams.getAll("range");
-      console.log(Price);
-      console.log(brand);
+      // console.log(Price);
+      // console.log(brand);
       let params = {
         category,
         brand,

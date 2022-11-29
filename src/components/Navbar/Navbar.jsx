@@ -14,7 +14,7 @@ const Navbar = () => {
   let {token,user,isAuth}= useSelector(state=>state.AuthReducer)
   const dispatch= useDispatch()
    user= user.toUpperCase().split("").join("")
-   console.log(user,isAuth)
+  //  console.log(user,isAuth)
   const handleClick= async()=>{
 
     dispatch(logout())
@@ -23,7 +23,7 @@ const Navbar = () => {
   }
 
   useEffect(()=>{
-    console.log("amit")
+    // console.log("amit")
  },[isAuth])
   return (
    <>
