@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <AllRoutes/>
       <Footer/>
+      {/* uboric project */}
     </div>
   );
 }
