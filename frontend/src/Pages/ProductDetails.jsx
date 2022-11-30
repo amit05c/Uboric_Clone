@@ -232,6 +232,7 @@ const ProductDetails = () => {
         borderRadius={"3%"}
         ml="1rem"
         padding="0.5rem"
+        alignItems={"center"}
        >
         <Button borderRadius="50%" bg={"#7d7d7d"} disabled={qty==1} onClick={()=>setQty(qty-1)}>-</Button>
         <Flex>{qty}</Flex>

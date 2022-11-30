@@ -89,6 +89,7 @@ const Cart = () => {
                   Apply
                 </Button>
               </Flex>
+              <br />
               <Button
                 display={"flex"}
                 alignContent="start"
@@ -103,7 +104,8 @@ const Cart = () => {
             </Box>}   
          
           </Box>
-          {cartData.length >0 && <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"} zIndex="1">
+          {/* {cartData.length >0 && <Box width={"35%"} position={"fixed"} top={"11.1rem"} right={"2rem"} zIndex="1"> */}
+          {cartData.length >0 && <Box width={"35%"}>
             <Box padding="2rem" bgColor={"#f5f5f5"}>
               <Flex
                 justifyContent={"space-between"}
