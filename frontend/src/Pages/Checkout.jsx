@@ -141,7 +141,7 @@ const Checkout = () => {
     // setFormData(billingData);
     console.log(fname,lname,address,city,pinCode,phone,state,country)
   
-    if(fname == "" || lname =="" || address =="" || city == "" || pinCode =="" || phone == ""  || state ==""){
+    if(fname == "" || lname =="" || address =="" || city == "" || pinCode =="" || phone == ""){
   // console.log(billingData)
 
   // console.log(formData)
